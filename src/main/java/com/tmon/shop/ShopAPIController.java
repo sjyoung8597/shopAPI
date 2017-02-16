@@ -66,8 +66,8 @@ public class ShopAPIController {
 		obj.put("testPath", testPath);
 		obj.put("url", url);
 		obj.put("classPath", classPath);
-		obj.put("request1", request1);
-
+		obj.put("request1", request1); 
+		obj.put("request1", request1); 
 		//obj.put("ioApache", ioApache);
 	   
 		
