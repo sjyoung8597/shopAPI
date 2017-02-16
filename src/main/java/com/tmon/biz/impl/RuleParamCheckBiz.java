@@ -34,6 +34,9 @@ public class RuleParamCheckBiz implements ICheckParameterBiz{
 				&& isNumber(NewShopInfoPersent)
 				&& isNumber(PromotionYNPersent))
 		{
+			//sum result 100% check logic insert
+			//if((Integer.parseInt(CustomerValuePersent) + Integer.parseInt(ShopValuePersent)) == 100)
+			//...........
 			return true;
 		}
 		

@@ -1,5 +1,6 @@
 package com.tmon.dao.impl;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -25,8 +26,8 @@ public class RuleSettingDao implements IRuleSettingDao{
 		obj.put("N4PromotionYNPersent", entity.getN4PromotionYNPersent());
 		
 		try {
-			 
-			FileWriter file = new FileWriter(fileName);
+			
+			FileWriter file = new FileWriter(new File(this.getClass().getResource("").getPath() + fileName));
 			file.write(obj.toJSONString());
 			file.flush();
 			file.close();
