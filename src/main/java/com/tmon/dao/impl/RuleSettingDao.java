@@ -12,10 +12,11 @@ import com.tmon.dto.RuleInfoDto;
 public class RuleSettingDao implements IRuleSettingDao{
 	
 	@Override
-	public boolean settingRules(RuleInfoDto entity, String fileName)
+	public boolean settingRules(RuleInfoDto entity)
 	{
 		boolean success = false;
 		JSONObject obj = new JSONObject();
+		String fileName = "settingDB_table.json";
 		
 		obj.put("N4CustomerValuePersent", entity.getN4CustomerValuePersent());
 		obj.put("N4ShopValuePersent", entity.getN4ShopValuePersent());

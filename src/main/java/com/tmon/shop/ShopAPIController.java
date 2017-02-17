@@ -48,6 +48,15 @@ public class ShopAPIController {
 		return result;
 	}
 	
+	@RequestMapping(value="/shopInfo", method=RequestMethod.GET)
+	public @ResponseBody boolean shopDetail(HttpServletRequest request) throws FileNotFoundException {
+		
+		IRuleSettingService ruleSetting = new RuleSettingService(request);
+		boolean result = ruleSetting.settingService();
+
+		return result;
+	}
+	
 	
 	
 	

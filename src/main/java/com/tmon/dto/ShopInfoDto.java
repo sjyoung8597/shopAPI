@@ -18,7 +18,7 @@ public class ShopInfoDto {
 	//좋아요 수
 	private int n4Like;
 	//상점 사용자 평점
-	private byte n1UserAverageScore;
+	private int n4UserAverageScore;
 	//상점 사진
 	private String strShopImg;
 	//상점 유형
@@ -38,7 +38,7 @@ public class ShopInfoDto {
 		this.strPhoneNum = "";
 		this.n4Lookup = 0;
 		this.n4Like = 0;
-		this.n1UserAverageScore = 0;
+		this.n4UserAverageScore = 0;
 		this.strShopImg ="";
 		this.strShopKind = ' ';
 		this.isShopPromotionYN = false;
@@ -92,7 +92,7 @@ public class ShopInfoDto {
 	public boolean getIsShopPromotionYN() {
 		return isShopPromotionYN;
 	}
-	public void setShopPromotionYN(boolean isShopPromotionYN) {
+	public void setIsShopPromotionYN(boolean isShopPromotionYN) {
 		this.isShopPromotionYN = isShopPromotionYN;
 	}
 	public int getN4ShopValueScore() {
@@ -114,12 +114,12 @@ public class ShopInfoDto {
 		this.n4ShopKey = n4ShopKey;
 	}
 
-	public byte getN1UserAverageScore() {
-		return n1UserAverageScore;
+	public int getN4UserAverageScore() {
+		return n4UserAverageScore;
 	}
 
-	public void setN1UserAverageScore(byte n1UserAverageScore) {
-		this.n1UserAverageScore = n1UserAverageScore;
+	public void setN4UserAverageScore(int n4UserAverageScore) {
+		this.n4UserAverageScore = n4UserAverageScore;
 	}
 	
 }

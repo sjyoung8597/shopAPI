@@ -18,7 +18,7 @@ public class SettingBiz implements ISettingBiz {
 	public boolean setting()
 	{
 		IRuleSettingDao ruleSettingDao = new RuleSettingDao();
-		boolean result = ruleSettingDao.settingRules(this.entity, "settingDB_table.json");
+		boolean result = ruleSettingDao.settingRules(this.entity);
 		
 		return result;
 	}
