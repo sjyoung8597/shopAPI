@@ -31,9 +31,9 @@ public class ShopAPIController {
 	
 	
 	@RequestMapping(value="/firstSetting", method=RequestMethod.GET)
-	public @ResponseBody boolean firstSetting() throws FileNotFoundException {
+	public @ResponseBody boolean firstSetting(HttpServletRequest request) throws FileNotFoundException {
 		
-		IRuleSettingService ruleSetting = new FirstSettingService(70,30,30,40,30,55,45);
+		IRuleSettingService ruleSetting = new FirstSettingService(70,30,30,40,30,55,45, request);
 		boolean result = ruleSetting.settingService();
 
 		return result;
@@ -61,7 +61,7 @@ public class ShopAPIController {
 		String url = this.getClass().getResource("").getPath(); 
 		
 		String classPath = new ShopAPIController().getClass().getResource("").getPath();
-		 String request1 = request.getSession().getServletContext().getRealPath("");
+		 String request1 = request.getSession().getServletContext().getRealPath("\\");
 		obj.put("path", path);
 		obj.put("testPath", testPath);
 		obj.put("url", url);
@@ -73,7 +73,7 @@ public class ShopAPIController {
 		
 		try {
 			 
-			FileWriter files = new FileWriter(new File(testPath+"settingJSON1009.json"));
+			FileWriter files = new FileWriter(new File(request1+"settingJSON1009.json"));
 			files.write(obj.toJSONString());
 			files.flush();
 			

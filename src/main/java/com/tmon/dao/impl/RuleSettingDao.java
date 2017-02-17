@@ -27,7 +27,7 @@ public class RuleSettingDao implements IRuleSettingDao{
 		
 		try {
 			
-			FileWriter file = new FileWriter(new File(this.getClass().getResource("").getPath() + fileName));
+			FileWriter file = new FileWriter(new File(entity.getStrRootPath() + fileName));
 			file.write(obj.toJSONString());
 			file.flush();
 			file.close();

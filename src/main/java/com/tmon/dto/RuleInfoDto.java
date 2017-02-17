@@ -20,13 +20,17 @@ public class RuleInfoDto {
 	//할인 여부 퍼센트
 	private int n4PromotionYNPersent;
 	
+	//나중에 추가 한 경로 정보
+	private String strRootPath;
+	
 	public RuleInfoDto(int n4CustomerValuePersent
 			, int n4ShopValuePersent
 			, int n4LookupPersent
 			, int n4LikePersent
 			, int n4UserAverageScorePersent
 			, int n4NewShopInfoPersent
-			, int n4PromotionYNPersent)
+			, int n4PromotionYNPersent
+			, String strRootPath)
 	{
 		this.n4CustomerValuePersent = n4CustomerValuePersent;
 		this.n4ShopValuePersent = n4ShopValuePersent;
@@ -35,10 +39,15 @@ public class RuleInfoDto {
 		this.n4UserAverageScorePersent = n4UserAverageScorePersent;
 		this.n4NewShopInfoPersent = n4NewShopInfoPersent;
 		this.n4PromotionYNPersent = n4PromotionYNPersent;
+		this.strRootPath = strRootPath;
 	}
 	
-	
-	
+	public String getStrRootPath() {
+		return strRootPath;
+	}
+	public void setStrRootPath(String strRootPath) {
+		this.strRootPath = strRootPath;
+	}
 	public int getN4CustomerValuePersent() {
 		return n4CustomerValuePersent;
 	}

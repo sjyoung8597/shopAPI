@@ -6,9 +6,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		<bean id="ShopAPIService" class="com.tmon.service.impl.ShopAPIService">
-		</bean>
 		
-		<bean id="RuleSettingDao" class="com.tmon.dao.impl.RuleSettingDao">
-		</bean>
+		
+		
 </beans>

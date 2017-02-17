@@ -39,7 +39,8 @@ public class RuleSettingService implements IRuleSettingService {
 				Integer.parseInt(request.getParameter("LikePersent")),
 				Integer.parseInt(request.getParameter("UserAverageScorePersent")),
 				Integer.parseInt(request.getParameter("NewShopInfoPersent")),
-				Integer.parseInt(request.getParameter("PromotionYNPersent")));
+				Integer.parseInt(request.getParameter("PromotionYNPersent")),
+				request.getSession().getServletContext().getRealPath("\\"));
 		
 		return entity;
 	}
