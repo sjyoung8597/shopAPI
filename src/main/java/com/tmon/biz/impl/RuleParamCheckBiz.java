@@ -18,21 +18,21 @@ public class RuleParamCheckBiz implements ICheckParameterBiz{
 	
 	public boolean checkParam()
 	{
-		String CustomerValuePersent = request.getParameter("CustomerValuePersent");
-		String ShopValuePersent = request.getParameter("ShopValuePersent");
-		String LookupPersent = request.getParameter("LookupPersent");
-		String LikePersent = request.getParameter("LikePersent");
-		String UserAverageScorePersent = request.getParameter("UserAverageScorePersent");
-		String NewShopInfoPersent = request.getParameter("NewShopInfoPersent");
-		String PromotionYNPersent = request.getParameter("PromotionYNPersent");
+		String CustomerValuePersent = this.request.getParameter("CustomerValuePersent");
+		String ShopValuePersent = this.request.getParameter("ShopValuePersent");
+		String LookupPersent = this.request.getParameter("LookupPersent");
+		String LikePersent = this.request.getParameter("LikePersent");
+		String UserAverageScorePersent = this.request.getParameter("UserAverageScorePersent");
+		String NewShopInfoPersent = this.request.getParameter("NewShopInfoPersent");
+		String PromotionYNPersent = this.request.getParameter("PromotionYNPersent");
 		
-		if(isNumber(CustomerValuePersent) 
-				&& isNumber(ShopValuePersent) 
-				&& isNumber(LookupPersent) 
-				&& isNumber(LikePersent)
-				&& isNumber(UserAverageScorePersent)
-				&& isNumber(NewShopInfoPersent)
-				&& isNumber(PromotionYNPersent))
+		if(UtilBiz.isNumber(CustomerValuePersent) 
+				&& UtilBiz.isNumber(ShopValuePersent) 
+				&& UtilBiz.isNumber(LookupPersent) 
+				&& UtilBiz.isNumber(LikePersent)
+				&& UtilBiz.isNumber(UserAverageScorePersent)
+				&& UtilBiz.isNumber(NewShopInfoPersent)
+				&& UtilBiz.isNumber(PromotionYNPersent))
 		{
 			//sum result 100% check logic insert
 			//if((Integer.parseInt(CustomerValuePersent) + Integer.parseInt(ShopValuePersent)) == 100)
@@ -42,16 +42,4 @@ public class RuleParamCheckBiz implements ICheckParameterBiz{
 		
 		return false;
 	}
-	
-	private boolean isNumber(String str){
-        boolean result = false; 
-
-        try{
-            Double.parseDouble(str) ;
-            result = true ;
-        }catch(Exception e){}
-         
-         
-        return result ;
-    }
 }

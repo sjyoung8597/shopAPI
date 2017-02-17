@@ -21,9 +21,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tmon.dto.*;
-import com.tmon.service.IRuleSettingService;
-import com.tmon.service.impl.FirstSettingService;
-import com.tmon.service.impl.RuleSettingService;
+import com.tmon.service.*;
+import com.tmon.service.impl.*;
 
 @RestController
 public class ShopAPIController {
@@ -31,28 +30,37 @@ public class ShopAPIController {
 	
 	
 	@RequestMapping(value="/firstSetting", method=RequestMethod.GET)
-	public @ResponseBody boolean firstSetting(HttpServletRequest request) throws FileNotFoundException {
+	public @ResponseBody boolean firstSetting(HttpServletRequest request) {
 		
-		IRuleSettingService ruleSetting = new FirstSettingService(70,30,30,40,30,55,45, request);
-		boolean result = ruleSetting.settingService();
+		IRuleSettingService ruleSettingService = new FirstSettingService(70,30,30,40,30,55,45, request);
+		boolean result = ruleSettingService.settingService();
 
 		return result;
 	}
 	
 	@RequestMapping(value="/ruleSetting", method=RequestMethod.GET)
-	public @ResponseBody boolean setting(HttpServletRequest request) throws FileNotFoundException {
+	public @ResponseBody boolean setting(HttpServletRequest request) {
 		
-		IRuleSettingService ruleSetting = new RuleSettingService(request);
-		boolean result = ruleSetting.settingService();
+		IRuleSettingService ruleSettingService = new RuleSettingService(request);
+		boolean result = ruleSettingService.settingService();
 
 		return result;
 	}
 	
 	@RequestMapping(value="/shopInfo", method=RequestMethod.GET)
-	public @ResponseBody boolean shopDetail(HttpServletRequest request) throws FileNotFoundException {
+	public @ResponseBody ShopInfoDto shopDetail(HttpServletRequest request) {
 		
-		IRuleSettingService ruleSetting = new RuleSettingService(request);
-		boolean result = ruleSetting.settingService();
+		IShopInfoService shopInfoService = new ShopInfoService(request);
+		ShopInfoDto result = shopInfoService.getShopInfo();
+
+		return result;
+	}
+	
+	@RequestMapping(value="/shopList", method=RequestMethod.GET)
+	public @ResponseBody List<ShopInfoDto> shopList(HttpServletRequest request) {
+		
+		IShopListService shopListService = new ShopListService(request);
+		List<ShopInfoDto> result = shopListService.getShopList();
 
 		return result;
 	}

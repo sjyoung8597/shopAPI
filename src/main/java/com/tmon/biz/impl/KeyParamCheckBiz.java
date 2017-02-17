@@ -17,22 +17,11 @@ public class KeyParamCheckBiz implements ICheckParameterBiz{
 	{
 		String Key = request.getParameter("key");
 		
-		if(isNumber(Key))
+		if(UtilBiz.isNumber(Key))
 		{
 			return true;
 		}
 		
 		return false;
 	}
-	private boolean isNumber(String str){
-        boolean result = false; 
-
-        try{
-            Double.parseDouble(str) ;
-            result = true ;
-        }catch(Exception e){}
-         
-         
-        return result ;
-    }
 }

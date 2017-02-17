@@ -24,14 +24,14 @@ public class RuleSettingService implements IRuleSettingService {
 		
 		if(check.checkParam())
 		{
-			ISettingBiz biz = new SettingBiz(addEntity());
+			ISettingBiz biz = new SettingBiz(addRequestEntity());
 			reuslt = biz.setting();
 		}
 		
 		return reuslt;
 	}
 	
-	public RuleInfoDto addEntity()
+	public RuleInfoDto addRequestEntity()
 	{
 		RuleInfoDto entity = new RuleInfoDto(Integer.parseInt(request.getParameter("CustomerValuePersent")),
 				Integer.parseInt(request.getParameter("ShopValuePersent")),

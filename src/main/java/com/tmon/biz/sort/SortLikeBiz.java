@@ -1,17 +1,15 @@
 package com.tmon.biz.sort;
 
-import java.util.Comparator;
-
 import com.tmon.biz.impl.UtilBiz;
 import com.tmon.dto.ShopInfoDto;
 
-public class SortingLikeBiz implements Comparator<ShopInfoDto>{
+public class SortLikeBiz extends SortBiz{
 	
-	private String sort = "asc";
+	private String sortASC = "asc";
 	
-	private SortingLikeBiz(String sort)
+	public SortLikeBiz(String sortASC)
 	{
-		this.sort= sort;
+		this.sortASC = sortASC;
 	}
 	
 	@Override
@@ -19,6 +17,6 @@ public class SortingLikeBiz implements Comparator<ShopInfoDto>{
 		int firstValue = o1.getN4Like();
 		int secondValue = o2.getN4Like();
 		
-		return UtilBiz.SortUtil(firstValue, secondValue, this.sort);
+		return UtilBiz.SortUtil(firstValue, secondValue, this.sortASC);
 	}
 }

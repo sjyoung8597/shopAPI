@@ -3,6 +3,9 @@ package com.tmon.biz.impl;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+
+import com.tmon.dto.ShopInfoDto;
 
 public class UtilBiz {
 	
@@ -33,9 +36,9 @@ public class UtilBiz {
 
 	}
 	
-	public static int SortUtil(int firstValue, int secondValue, String sort)
+	public static int SortUtil(int firstValue, int secondValue, String sortASC)
 	{
-		if(sort.equals("asc"))
+		if(sortASC.equals("asc"))
 		{
 			if(firstValue > secondValue)
 				return -1;
@@ -54,4 +57,23 @@ public class UtilBiz {
 				return -1;
 		}
 	}
+	
+	public static List<ShopInfoDto> PagingShopList(int pageSize, int currentPage, List<ShopInfoDto> list)
+	{
+		list.subList(pageSize*(currentPage-1), pageSize*currentPage);
+		
+		return list;
+	}
+	
+	public static boolean isNumber(String str){
+        boolean result = false; 
+
+        try{
+            Double.parseDouble(str) ;
+            result = true ;
+        }catch(Exception e){}
+         
+         
+        return result ;
+    }
 }
