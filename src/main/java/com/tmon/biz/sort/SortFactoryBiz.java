@@ -11,9 +11,9 @@ public class SortFactoryBiz {
 		this.sortASC = sortASC;
 	}
 	
-	public SortBiz sortingProcess()
+	public ASortBiz sortingProcess()
 	{
-		SortBiz sort = null;
+		ASortBiz sort = null;
 		
 		if(this.sortKind.toLowerCase().equals("shopkey"))
 		{

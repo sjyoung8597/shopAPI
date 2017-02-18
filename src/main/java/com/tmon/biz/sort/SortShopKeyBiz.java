@@ -3,7 +3,7 @@ package com.tmon.biz.sort;
 import com.tmon.biz.common.UtilBiz;
 import com.tmon.dto.ShopInfoDto;
 
-public class SortShopKeyBiz extends SortBiz{
+public class SortShopKeyBiz extends ASortBiz{
 	
 	private String sortASC = "asc";
 	

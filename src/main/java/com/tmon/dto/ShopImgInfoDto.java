@@ -8,7 +8,7 @@ public class ShopImgInfoDto {
 	//상점 이미지 url
 	private String strShopImgUrl;
 	//상점 이미지 출처
-	private char strShopImgSource;
+	private String strShopImgOrigin;
 	
 	public String getStrShopImgUrl() {
 		return strShopImgUrl;
@@ -16,11 +16,11 @@ public class ShopImgInfoDto {
 	public void setStrShopImgUrl(String strShopImgUrl) {
 		this.strShopImgUrl = strShopImgUrl;
 	}
-	public char getStrShopImgSource() {
-		return strShopImgSource;
+	public String getStrShopImgOrigin() {
+		return strShopImgOrigin;
 	}
-	public void setStrShopImgSource(char strShopImgSource) {
-		this.strShopImgSource = strShopImgSource;
+	public void setStrShopImgOrigin(String strShopImgOrigin) {
+		this.strShopImgOrigin = strShopImgOrigin;
 	}
 	public int getN4ShopKey() {
 		return n4ShopKey;

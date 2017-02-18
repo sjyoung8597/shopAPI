@@ -11,20 +11,19 @@ import org.json.simple.parser.ParseException;
 
 import com.tmon.dao.IShopListDao;
 
-public class ShopDao implements IShopListDao{
-	
+public class ShopImgDao implements IShopListDao {
 	private String savePath;
 	
-	public ShopDao(String savePath)
+	public ShopImgDao(String savePath)
 	{
 		this.savePath = savePath;
 	}
-
+	
 	public JSONObject getShopList()
 	{
 		JSONParser parser = new JSONParser();
 		JSONObject jsonObject = null;
-		String fileName = "shopInfoDB_table.json";
+		String fileName = "shopImgInfoDB_table.json";
 		
 		try {
 			Object obj = parser.parse(new FileReader(new File(this.savePath + fileName) ));

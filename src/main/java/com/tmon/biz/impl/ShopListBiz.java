@@ -13,7 +13,7 @@ import org.json.simple.JSONObject;
 import com.tmon.biz.IShopListBiz;
 import com.tmon.biz.common.UtilBiz;
 import com.tmon.biz.sort.SortFactoryBiz;
-import com.tmon.dao.IShopDao;
+import com.tmon.dao.IShopListDao;
 import com.tmon.dao.impl.ShopDao;
 import com.tmon.dto.ShopInfoDto;
 import com.tmon.dto.ShopListDto;
@@ -44,7 +44,7 @@ public class ShopListBiz implements IShopListBiz{
 		
 		ShopInfoDto entity = null;
 		
-		IShopDao dao = new ShopDao(this.savePath);
+		IShopListDao dao = new ShopDao(this.savePath);
 		JSONObject jsonObject = dao.getShopList();
 		
 		if(jsonObject != null)
@@ -74,6 +74,7 @@ public class ShopListBiz implements IShopListBiz{
 			}
 			
 			//SortFactoryBiz factory = null;
+			int totalCount = list.size();
 			
 			Collections.sort(list, new SortFactoryBiz(this.sortKind, this.sortASC).sortingProcess());
 			
@@ -81,9 +82,9 @@ public class ShopListBiz implements IShopListBiz{
 			{
 				sortList.add(sortEntity);
 			}
-
-			result.setShopList(sortList.subList(this.pageSize*(this.currentPage-1), this.pageSize*this.currentPage));
-			result.setTotalCount(list.size());
+			
+			result.setShopList(UtilBiz.PagingShopList(pageSize, currentPage, totalCount, sortList));
+			result.setTotalCount(totalCount);
 		}
 
 		return result;

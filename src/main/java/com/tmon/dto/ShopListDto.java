@@ -7,7 +7,7 @@ public class ShopListDto {
 	//해당 상점 PK 인덱스
 	private int totalCount;
 
-	private List<ShopInfoDto> shopList;
+	private List<ShopInfoDto> shop;
 	
 	
 	public int getTotalCount() {
@@ -19,11 +19,11 @@ public class ShopListDto {
 	}
 
 	public List<ShopInfoDto> getShopList() {
-		return shopList;
+		return shop;
 	}
 
-	public void setShopList(List<ShopInfoDto> shopList) {
-		this.shopList = shopList;
+	public void setShopList(List<ShopInfoDto> shop) {
+		this.shop = shop;
 	}
 		
 		

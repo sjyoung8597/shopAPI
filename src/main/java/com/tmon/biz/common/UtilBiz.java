@@ -58,9 +58,22 @@ public class UtilBiz {
 		}
 	}
 	
-	public static List<ShopInfoDto> PagingShopList(int pageSize, int currentPage, List<ShopInfoDto> list)
+	public static List<ShopInfoDto> PagingShopList(int pageSize, int currentPage, int totalCount, List<ShopInfoDto> list)
 	{
-		list.subList(pageSize*(currentPage-1), pageSize*currentPage);
+		
+		if(totalCount < pageSize*(currentPage-1))
+		{
+			list = null;
+		}
+		else if(totalCount < (pageSize*currentPage))
+		{
+			list = list.subList(pageSize*(currentPage-1), totalCount);
+		}
+		else
+		{
+			list = list.subList(pageSize*(currentPage-1), pageSize*currentPage);
+		}
+		
 		
 		return list;
 	}

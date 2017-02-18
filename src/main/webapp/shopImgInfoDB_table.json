@@ -1,0 +1,130 @@
+
+{
+	"shopImgInfo": [
+		{ "n4ShopKey": "21", 
+		
+				"strShopImgUrl" : "http://img.com/main/984ds", 
+				"strShopImgOrigin": "self"
+		},
+		{ "n4ShopKey": "20", 
+		
+			   "strShopImgUrl" : "http://img.com/main/k896j7", 
+			   "strShopImgOrigin": "self"
+		},
+		{ "n4ShopKey": "19", 
+
+				"strShopImgUrl" : "http://img.com/main/f23",
+				"strShopImgOrigin": "store"
+	 	  
+		},
+		{ "n4ShopKey": "18", 
+
+				"strShopImgUrl" : "http://img.com/main/g323", 
+				"strShopImgOrigin": "store"
+	 	  
+		},
+		{ "n4ShopKey": "17", 
+
+				"strShopImgUrl" : "http://img.com/main/l899", 
+				"strShopImgOrigin": "self"
+	 	  
+		},
+		{ "n4ShopKey": "16", 
+
+				"strShopImgUrl" : "http://img.com/main/dfgh", 
+				"strShopImgOrigin": "store"
+	 	  
+		},
+		{ "n4ShopKey": "15", 
+
+				"strShopImgUrl" : "http://img.com/main/a3w", 
+				"strShopImgOrigin": "store"
+	 	  
+		},
+		{ "n4ShopKey": "14", 
+
+				"strShopImgUrl" : "http://img.com/main/09l8", 
+				"strShopImgOrigin": "store"
+	 	  
+		},
+		{ "n4ShopKey": "13", 
+
+				"strShopImgUrl" : "http://img.com/main/32cr", 
+				"strShopImgOrigin": "self"
+	 	  
+		},
+		{ "n4ShopKey": "12", 
+
+				"strShopImgUrl" : "http://img.com/main/qa2b", 
+				"strShopImgOrigin": "store"
+	 	  
+		},
+		{ "n4ShopKey": "11", 
+
+				"strShopImgUrl" : "http://img.com/main/3bt4",
+				"strShopImgOrigin": "store"
+	 	  
+		},
+		{ "n4ShopKey": "10", 
+
+				"strShopImgUrl" : "http://img.com/main/b45y3", 
+				"strShopImgOrigin": "store"
+	 	  
+		},
+		{ "n4ShopKey": "9", 
+
+				"strShopImgUrl" : "http://img.com/main/556", 
+				"strShopImgOrigin": "self"
+	 	  
+		},
+		{ "n4ShopKey": "8", 
+
+				"strShopImgUrl" : "http://img.com/main/34534", 
+				"strShopImgOrigin": "store"
+	 	  
+		},
+		{ "n4ShopKey": "7", 
+
+				"strShopImgUrl" : "http://img.com/main/2d34w3rd", 
+				"strShopImgOrigin": "self"
+	 	  
+		},
+		{ "n4ShopKey": "6", 
+
+				"strShopImgUrl" : "http://img.com/main/gkgjl", 
+				"strShopImgOrigin": "self"
+	 	  
+		},
+		{ "n4ShopKey": "5", 
+
+				"strShopImgUrl" : "http://img.com/main/6r7k8k6", 
+				"strShopImgOrigin": "self"
+	 	  
+		},
+		{ "n4ShopKey": "4", 
+
+				"strShopImgUrl" : "http://img.com/main/sdfgsdfg", 
+				"strShopImgOrigin": "store"
+	 	  
+		},
+		{ "n4ShopKey": "3", 
+
+				"strShopImgUrl" : "http://img.com/main/nioin", 
+				"strShopImgOrigin": "store"
+	 	  
+		},
+		{ "n4ShopKey": "2", 
+
+				"strShopImgUrl" : "http://img.com/main/7bu", 
+				"strShopImgOrigin": "self"
+	 	  
+		},
+		{ "n4ShopKey": "1", 
+
+				"strShopImgUrl" : "http://img.com/main/4cfxr5f", 
+				"strShopImgOrigin": "store"
+	 	  
+		}
+		
+ 	]
+}

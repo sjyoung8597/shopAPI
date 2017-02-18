@@ -3,6 +3,7 @@ package com.tmon.service.impl;
 import javax.servlet.http.HttpServletRequest;
 
 import com.tmon.biz.ICheckParameterBiz;
+import com.tmon.biz.IShopInfoBiz;
 import com.tmon.biz.check.KeyParamCheckBiz;
 import com.tmon.biz.impl.ShopInfoBiz;
 import com.tmon.dto.ShopInfoDto;
@@ -24,7 +25,7 @@ public class ShopInfoService implements IShopInfoService {
 		
 		if(check.checkParam())
 		{
-			ShopInfoBiz biz = new ShopInfoBiz(this.request);
+			IShopInfoBiz biz = new ShopInfoBiz(this.request);
 			entity = biz.getShopInfo();
 		}
 		

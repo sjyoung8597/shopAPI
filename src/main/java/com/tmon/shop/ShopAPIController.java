@@ -1,7 +1,6 @@
 package com.tmon.shop;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DateFormat;
@@ -61,6 +60,15 @@ public class ShopAPIController {
 		
 		IShopListService shopListService = new ShopListService(request);
 		ShopListDto result = shopListService.getShopList();
+
+		return result;
+	}
+	
+	@RequestMapping(value="/shopImgInfo", method=RequestMethod.GET)
+	public @ResponseBody ShopImgInfoDto shopImgInfo(HttpServletRequest request) {
+		
+		IShopImgInfoService shopImgInfoService = new ShopImgInfoService(request);
+		ShopImgInfoDto result = shopImgInfoService.getShopInfo();
 
 		return result;
 	}

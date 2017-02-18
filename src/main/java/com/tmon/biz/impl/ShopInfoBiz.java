@@ -5,12 +5,13 @@ import javax.servlet.http.HttpServletRequest;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import com.tmon.biz.IShopInfoBiz;
 import com.tmon.biz.common.UtilBiz;
-import com.tmon.dao.IShopDao;
+import com.tmon.dao.IShopListDao;
 import com.tmon.dao.impl.ShopDao;
 import com.tmon.dto.ShopInfoDto;
 
-public class ShopInfoBiz {
+public class ShopInfoBiz implements IShopInfoBiz {
 	
 	private String savePath = "";
 	private String key = "";
@@ -25,7 +26,7 @@ public class ShopInfoBiz {
 	{
 		ShopInfoDto entity = null;
 		
-		IShopDao dao = new ShopDao(this.savePath);
+		IShopListDao dao = new ShopDao(this.savePath);
 		JSONObject jsonObject = dao.getShopList();
 		
 		if(jsonObject != null)
