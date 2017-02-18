@@ -4,9 +4,9 @@ import com.tmon.biz.calculation.detail.ASubCalculatorBiz;
 import com.tmon.dto.RuleInfoDto;
 import com.tmon.dto.ShopInfoDto;
 
-public class ShopCalculatorBiz extends ASubCalculatorBiz  {
+public class CustomerCalculatorBiz extends ASubCalculatorBiz  {
 	
-	public ShopCalculatorBiz(ShopInfoDto shopInfo, RuleInfoDto ruleInfo)
+	public CustomerCalculatorBiz(ShopInfoDto shopInfo, RuleInfoDto ruleInfo)
 	{
 		this.shopInfo = shopInfo;
 		this.ruleInfo = ruleInfo;

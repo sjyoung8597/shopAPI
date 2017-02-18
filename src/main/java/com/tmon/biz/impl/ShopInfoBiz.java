@@ -52,7 +52,7 @@ public class ShopInfoBiz implements IShopInfoBiz {
 					entity.setStrShopKind(shopObject.get("strShopKind").toString());
 					entity.setIsShopPromotionYN(new Boolean(shopObject.get("isShopPromotionYN").toString()).booleanValue());
 					entity.setN4ShopValueScore(Integer.parseInt(shopObject.get("n4ShopValueScore").toString()));
-					entity.setDtModifyDate(UtilBiz.StringToDate(shopObject.get("dtModifyDate").toString()));
+					entity.setN4ModifyDate(Integer.parseInt(shopObject.get("dtModifyDate").toString()));
 					
 					break;
 				}

@@ -28,7 +28,7 @@ public class ShopInfoDto {
 	//가치 점수
 	private int n4ShopValueScore;
 	//최종 수정일
-	private Date dtModifyDate;
+	private int n4ModifyDate;
 	
 	public ShopInfoDto()
 	{
@@ -43,7 +43,7 @@ public class ShopInfoDto {
 		this.strShopKind = "";
 		this.isShopPromotionYN = false;
 		this.n4ShopValueScore = 0;
-		this.dtModifyDate = new Date();
+		this.n4ModifyDate = 0;
 		
 	}
 	
@@ -101,11 +101,11 @@ public class ShopInfoDto {
 	public void setN4ShopValueScore(int n4ShopValueScore) {
 		this.n4ShopValueScore = n4ShopValueScore;
 	}
-	public Date getDtModifyDate() {
-		return dtModifyDate;
+	public int getN4ModifyDate() {
+		return n4ModifyDate;
 	}
-	public void setDtModifyDate(Date dtModifyDate) {
-		this.dtModifyDate = dtModifyDate;
+	public void setN4ModifyDate(int n4ModifyDate) {
+		this.n4ModifyDate = n4ModifyDate;
 	}
 	public int getN4ShopKey() {
 		return n4ShopKey;
