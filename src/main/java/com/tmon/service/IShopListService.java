@@ -1,10 +1,8 @@
 package com.tmon.service;
 
-import java.util.List;
-
-import com.tmon.dto.ShopInfoDto;
+import com.tmon.dto.ShopListDto;
 
 public interface IShopListService {
 
-	List<ShopInfoDto> getShopList();
+	ShopListDto getShopList();
 }

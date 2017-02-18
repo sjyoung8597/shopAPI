@@ -22,7 +22,7 @@ public class ShopInfoDto {
 	//상점 사진
 	private String strShopImg;
 	//상점 유형
-	private char strShopKind;
+	private String strShopKind;
 	//할인 이벤트 여부
 	private boolean isShopPromotionYN;
 	//가치 점수
@@ -40,7 +40,7 @@ public class ShopInfoDto {
 		this.n4Like = 0;
 		this.n4UserAverageScore = 0;
 		this.strShopImg ="";
-		this.strShopKind = ' ';
+		this.strShopKind = "";
 		this.isShopPromotionYN = false;
 		this.n4ShopValueScore = 0;
 		this.dtModifyDate = new Date();
@@ -83,10 +83,10 @@ public class ShopInfoDto {
 	public void setStrShopImg(String strShopImg) {
 		this.strShopImg = strShopImg;
 	}
-	public char getStrShopKind() {
+	public String getStrShopKind() {
 		return strShopKind;
 	}
-	public void setStrShopKind(char strShopKind) {
+	public void setStrShopKind(String strShopKind) {
 		this.strShopKind = strShopKind;
 	}
 	public boolean getIsShopPromotionYN() {

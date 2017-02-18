@@ -57,10 +57,10 @@ public class ShopAPIController {
 	}
 	
 	@RequestMapping(value="/shopList", method=RequestMethod.GET)
-	public @ResponseBody List<ShopInfoDto> shopList(HttpServletRequest request) {
+	public @ResponseBody ShopListDto shopList(HttpServletRequest request) {
 		
 		IShopListService shopListService = new ShopListService(request);
-		List<ShopInfoDto> result = shopListService.getShopList();
+		ShopListDto result = shopListService.getShopList();
 
 		return result;
 	}
@@ -90,7 +90,7 @@ public class ShopAPIController {
 		
 		try {
 			 
-			FileWriter files = new FileWriter(new File(request1+"settingJSON1009.json"));
+			FileWriter files = new FileWriter(new File(request1+"settingJSON8597.json"));
 			files.write(obj.toJSONString());
 			files.flush();
 			

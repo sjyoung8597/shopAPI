@@ -1,4 +1,4 @@
-package com.tmon.biz.impl;
+package com.tmon.biz.common;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -38,7 +38,7 @@ public class UtilBiz {
 	
 	public static int SortUtil(int firstValue, int secondValue, String sortASC)
 	{
-		if(sortASC.equals("asc"))
+		if(sortASC.equals("asc")) //asc
 		{
 			if(firstValue > secondValue)
 				return -1;
@@ -47,14 +47,14 @@ public class UtilBiz {
 			else
 				return 0;
 		}
-		else
+		else //desc
 		{
 			if(firstValue > secondValue)
-				return 0;
-			else if(firstValue < secondValue)
 				return 1;
-			else
+			else if(firstValue < secondValue)
 				return -1;
+			else
+				return 0;
 		}
 	}
 	

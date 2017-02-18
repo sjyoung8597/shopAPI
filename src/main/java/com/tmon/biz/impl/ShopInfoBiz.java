@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import com.tmon.biz.common.UtilBiz;
 import com.tmon.dao.IShopDao;
 import com.tmon.dao.impl.ShopDao;
 import com.tmon.dto.ShopInfoDto;
@@ -35,22 +36,24 @@ public class ShopInfoBiz {
 			{
 				JSONObject shopObject = (JSONObject)shopList.get(i);
 				
-				if(shopObject.get("n4ShopKey").toString() == this.key)
+				if(shopObject.get("n4ShopKey").toString().equals(this.key))
 				{
 					entity = new ShopInfoDto();
 					
-					entity.setN4ShopKey((int)shopObject.get("n4ShopKey"));
+					entity.setN4ShopKey(Integer.parseInt(shopObject.get("n4ShopKey").toString()));
 					entity.setStrShopName(shopObject.get("strShopName").toString());
 					entity.setStrShopDescription(shopObject.get("strShopDescription").toString());
 					entity.setStrPhoneNum(shopObject.get("strPhoneNum").toString());
-					entity.setN4Lookup((int)shopObject.get("n4Lookup"));
-					entity.setN4Like((int)shopObject.get("n4Like"));
-					entity.setN4UserAverageScore((int)shopObject.get("n4UserAverageScore"));
+					entity.setN4Lookup(Integer.parseInt(shopObject.get("n4Lookup").toString()));
+					entity.setN4Like(Integer.parseInt(shopObject.get("n4Like").toString()));
+					entity.setN4UserAverageScore(Integer.parseInt(shopObject.get("n4UserAverageScore").toString()));
 					entity.setStrShopImg(shopObject.get("strShopImg").toString());
-					entity.setStrShopKind((char)shopObject.get("strShopKind"));
-					entity.setIsShopPromotionYN((boolean)shopObject.get("isShopPromotionYN"));
-					entity.setN4ShopValueScore((int)shopObject.get("n4ShopValueScore"));
+					entity.setStrShopKind(shopObject.get("strShopKind").toString());
+					entity.setIsShopPromotionYN(new Boolean(shopObject.get("isShopPromotionYN").toString()).booleanValue());
+					entity.setN4ShopValueScore(Integer.parseInt(shopObject.get("n4ShopValueScore").toString()));
 					entity.setDtModifyDate(UtilBiz.StringToDate(shopObject.get("dtModifyDate").toString()));
+					
+					break;
 				}
 			}
 		}

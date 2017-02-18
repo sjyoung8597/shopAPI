@@ -1,8 +1,9 @@
-package com.tmon.biz.impl;
+package com.tmon.biz.check;
 
 import javax.servlet.http.HttpServletRequest;
 
 import com.tmon.biz.ICheckParameterBiz;
+import com.tmon.biz.common.UtilBiz;
 
 public class ListParamCheckBiz implements ICheckParameterBiz{
 	

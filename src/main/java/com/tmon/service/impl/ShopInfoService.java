@@ -3,7 +3,7 @@ package com.tmon.service.impl;
 import javax.servlet.http.HttpServletRequest;
 
 import com.tmon.biz.ICheckParameterBiz;
-import com.tmon.biz.impl.KeyParamCheckBiz;
+import com.tmon.biz.check.KeyParamCheckBiz;
 import com.tmon.biz.impl.ShopInfoBiz;
 import com.tmon.dto.ShopInfoDto;
 import com.tmon.service.IShopInfoService;

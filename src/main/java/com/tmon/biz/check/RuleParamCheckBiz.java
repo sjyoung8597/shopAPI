@@ -1,8 +1,9 @@
-package com.tmon.biz.impl;
+package com.tmon.biz.check;
 
 import javax.servlet.http.HttpServletRequest;
 
 import com.tmon.biz.ICheckParameterBiz;
+import com.tmon.biz.common.UtilBiz;
 import com.tmon.dto.RuleInfoDto;
 
 public class RuleParamCheckBiz implements ICheckParameterBiz{

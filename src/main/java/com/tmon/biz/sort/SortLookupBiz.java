@@ -1,6 +1,6 @@
 package com.tmon.biz.sort;
 
-import com.tmon.biz.impl.UtilBiz;
+import com.tmon.biz.common.UtilBiz;
 import com.tmon.dto.ShopInfoDto;
 
 public class SortLookupBiz extends SortBiz{
