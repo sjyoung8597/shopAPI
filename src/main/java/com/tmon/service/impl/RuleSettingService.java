@@ -10,18 +10,35 @@ import com.tmon.service.ISettingService;
 
 public class RuleSettingService implements ISettingService {
 	
-	private HttpServletRequest request = null;
+	private String savePath;
+	private String CustomerValuePersent;
+	private String ShopValuePersent;
+	private String LookupPersent;
+	private String LikePersent;
+	private String UserAverageScorePersent;
+	private String NewShopInfoPersent;
+	private String PromotionYNPersent;
 	
 	public RuleSettingService(HttpServletRequest request)
 	{
-		this.request = request;
+		this.CustomerValuePersent = request.getParameter("CustomerValuePersent");
+		this.ShopValuePersent = request.getParameter("ShopValuePersent");
+		this.LookupPersent = request.getParameter("LookupPersent");
+		this.LikePersent = request.getParameter("LikePersent");
+		this.UserAverageScorePersent = request.getParameter("UserAverageScorePersent");
+		this.NewShopInfoPersent = request.getParameter("NewShopInfoPersent");
+		this.PromotionYNPersent = request.getParameter("PromotionYNPersent");
+		this.savePath = request.getSession().getServletContext().getRealPath("\\");
 	}
 	
 	@Override
 	public boolean settingService()
 	{
 		boolean reuslt = false;
-		ICheckParameterBiz check = new RuleParamCheckBiz(this.request);
+		ICheckParameterBiz check = new RuleParamCheckBiz(this.CustomerValuePersent, this.ShopValuePersent
+				, this.LookupPersent, this.LikePersent
+				, this.UserAverageScorePersent, this.NewShopInfoPersent
+				, this.PromotionYNPersent);
 		
 		if(check.checkParam())
 		{
@@ -34,14 +51,14 @@ public class RuleSettingService implements ISettingService {
 	
 	public RuleInfoDto addRequestEntity()
 	{
-		RuleInfoDto entity = new RuleInfoDto(Integer.parseInt(request.getParameter("CustomerValuePersent")),
-				Integer.parseInt(request.getParameter("ShopValuePersent")),
-				Integer.parseInt(request.getParameter("LookupPersent")),
-				Integer.parseInt(request.getParameter("LikePersent")),
-				Integer.parseInt(request.getParameter("UserAverageScorePersent")),
-				Integer.parseInt(request.getParameter("NewShopInfoPersent")),
-				Integer.parseInt(request.getParameter("PromotionYNPersent")),
-				request.getSession().getServletContext().getRealPath("\\"));
+		RuleInfoDto entity = new RuleInfoDto(Integer.parseInt(this.CustomerValuePersent),
+				Integer.parseInt(this.ShopValuePersent),
+				Integer.parseInt(this.LookupPersent),
+				Integer.parseInt(this.LikePersent),
+				Integer.parseInt(this.UserAverageScorePersent),
+				Integer.parseInt(this.NewShopInfoPersent),
+				Integer.parseInt(this.PromotionYNPersent),
+				this.savePath);
 		
 		return entity;
 	}

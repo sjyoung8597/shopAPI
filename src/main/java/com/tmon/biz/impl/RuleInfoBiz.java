@@ -1,7 +1,5 @@
 package com.tmon.biz.impl;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.json.simple.JSONObject;
 
 import com.tmon.biz.IRuleInfoBiz;
@@ -12,9 +10,9 @@ import com.tmon.dto.RuleInfoDto;
 public class RuleInfoBiz implements IRuleInfoBiz{
 	private String savePath = "";
 	
-	public RuleInfoBiz(HttpServletRequest request)
+	public RuleInfoBiz(String savePath)
 	{
-		this.savePath = request.getSession().getServletContext().getRealPath("\\");
+		this.savePath = savePath;
 	}
 	
 	@Override

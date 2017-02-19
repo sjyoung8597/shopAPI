@@ -1,43 +1,42 @@
 package com.tmon.biz.check;
 
-import javax.servlet.http.HttpServletRequest;
-
 import com.tmon.biz.ICheckParameterBiz;
 import com.tmon.biz.common.UtilBiz;
-import com.tmon.dto.RuleInfoDto;
 
 public class RuleParamCheckBiz implements ICheckParameterBiz{
 
-	private HttpServletRequest request = null;
-	
-	public RuleInfoDto entity;
-	
-	public RuleParamCheckBiz(HttpServletRequest request)
+	private String CustomerValuePersent;
+	private String ShopValuePersent;
+	private String LookupPersent;
+	private String LikePersent;
+	private String UserAverageScorePersent;
+	private String NewShopInfoPersent;
+	private String PromotionYNPersent;
+
+	public RuleParamCheckBiz(String CustomerValuePersent, String ShopValuePersent
+			, String LookupPersent, String LikePersent
+			, String UserAverageScorePersent, String NewShopInfoPersent
+			, String PromotionYNPersent)
 	{
-		this.request = request;
+		this.CustomerValuePersent = CustomerValuePersent;
+		this.ShopValuePersent = ShopValuePersent;
+		this.LookupPersent = LookupPersent;
+		this.LikePersent = LikePersent;
+		this.UserAverageScorePersent = UserAverageScorePersent;
+		this.NewShopInfoPersent = NewShopInfoPersent;
+		this.PromotionYNPersent = PromotionYNPersent;
 	}
 	
 	public boolean checkParam()
 	{
-		String CustomerValuePersent = this.request.getParameter("CustomerValuePersent");
-		String ShopValuePersent = this.request.getParameter("ShopValuePersent");
-		String LookupPersent = this.request.getParameter("LookupPersent");
-		String LikePersent = this.request.getParameter("LikePersent");
-		String UserAverageScorePersent = this.request.getParameter("UserAverageScorePersent");
-		String NewShopInfoPersent = this.request.getParameter("NewShopInfoPersent");
-		String PromotionYNPersent = this.request.getParameter("PromotionYNPersent");
-		
-		if(UtilBiz.isNumber(CustomerValuePersent) 
-				&& UtilBiz.isNumber(ShopValuePersent) 
-				&& UtilBiz.isNumber(LookupPersent) 
-				&& UtilBiz.isNumber(LikePersent)
-				&& UtilBiz.isNumber(UserAverageScorePersent)
-				&& UtilBiz.isNumber(NewShopInfoPersent)
-				&& UtilBiz.isNumber(PromotionYNPersent))
+		if(UtilBiz.isNumber(this.CustomerValuePersent) 
+				&& UtilBiz.isNumber(this.ShopValuePersent) 
+				&& UtilBiz.isNumber(this.LookupPersent) 
+				&& UtilBiz.isNumber(this.LikePersent)
+				&& UtilBiz.isNumber(this.UserAverageScorePersent)
+				&& UtilBiz.isNumber(this.NewShopInfoPersent)
+				&& UtilBiz.isNumber(this.PromotionYNPersent))
 		{
-			//sum result 100% check logic insert
-			//if((Integer.parseInt(CustomerValuePersent) + Integer.parseInt(ShopValuePersent)) == 100)
-			//...........
 			return true;
 		}
 		

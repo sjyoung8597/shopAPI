@@ -14,15 +14,15 @@ import com.tmon.dto.ShopInfoDto;
 
 public class ValueScoreBiz implements ISettingBiz{
 	
-	private String savePath = "";
+	private String savePath;
 	private List<ShopInfoDto> list;
 	private RuleInfoDto rule;
 	
-	public ValueScoreBiz(HttpServletRequest request, List<ShopInfoDto> list, RuleInfoDto rule)
+	public ValueScoreBiz(String savePath, List<ShopInfoDto> list, RuleInfoDto rule)
 	{
 		this.list = list;
 		this.rule = rule;
-		this.savePath = request.getSession().getServletContext().getRealPath("\\");
+		this.savePath = savePath;
 	}
 	
 	@Override
@@ -31,14 +31,16 @@ public class ValueScoreBiz implements ISettingBiz{
 		boolean result = false;
 		List<ShopInfoDto> setting = new ArrayList<ShopInfoDto>();
 		
+		//가치 산정 로직
 		for(ShopInfoDto entity : this.list)
 		{
-			ACalculatorBiz verificationResponse = CalculatorFactoryBiz.getResponse(new EnterCalculatorBiz(entity, this.rule));
-			entity.setN4ShopValueScore(verificationResponse.getResultScore());
+			ACalculatorBiz valueScoreCalculator = CalculatorFactoryBiz.getResponse(new EnterCalculatorBiz(entity, this.rule));
+			entity.setN4ShopValueScore(valueScoreCalculator.getResultScore());
 			
 			setting.add(entity);
 		}
 		
+		//json (DB) update
 		ISettingBiz settingBiz = new ShopValueSettingBiz(setting, this.savePath);
 		result = settingBiz.setting();
 

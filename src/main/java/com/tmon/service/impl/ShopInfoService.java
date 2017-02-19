@@ -12,21 +12,24 @@ import com.tmon.service.IShopInfoService;
 public class ShopInfoService implements IShopInfoService {
 
 	private HttpServletRequest request = null;
+	private String savePath;
+	private String key;
 	
 	public ShopInfoService(HttpServletRequest request)
 	{
-		this.request = request;
+		this.savePath = request.getSession().getServletContext().getRealPath("\\");
+		this.key = request.getParameter("key");
 	}
 	
 	@Override
 	public ShopInfoDto getShopInfo()
 	{
 		ShopInfoDto entity = null;
-		ICheckParameterBiz check = new KeyParamCheckBiz(this.request);
+		ICheckParameterBiz check = new KeyParamCheckBiz(this.key);
 		
 		if(check.checkParam())
 		{
-			IShopInfoBiz biz = new ShopInfoBiz(this.request);
+			IShopInfoBiz biz = new ShopInfoBiz(this.savePath, this.key);
 			entity = biz.getShopInfo();
 		}
 		

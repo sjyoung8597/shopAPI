@@ -16,11 +16,20 @@ import com.tmon.service.IShopListService;
 
 public class ShopListService implements IShopListService{
 
-	private HttpServletRequest request = null;
+	private String savePath;
+	private String sortASC;
+	private String sortKind;
+	private String pageSize;
+	private String currentPage;
 	
 	public ShopListService(HttpServletRequest request)
 	{
-		this.request = request;
+		this.savePath = request.getSession().getServletContext().getRealPath("\\");
+		
+		this.sortASC = request.getParameter("sortASC").toLowerCase();
+		this.sortKind = request.getParameter("sortKind").toLowerCase();
+		this.pageSize = request.getParameter("pageSize");
+		this.currentPage = request.getParameter("currentPage");
 	}
 	
 	@Override
@@ -29,14 +38,14 @@ public class ShopListService implements IShopListService{
 		ShopListDto entity = null;
 		List<ShopInfoDto> list = null;
 		
-		ICheckParameterBiz check = new ListParamCheckBiz(this.request);
+		ICheckParameterBiz check = new ListParamCheckBiz(this.sortASC, this.sortKind, this.pageSize, this.currentPage);
 		
 		if(check.checkParam())
 		{
-			IShopListBiz listBiz = new ShopListBiz(this.request);
+			IShopListBiz listBiz = new ShopListBiz(this.savePath);
 			list = listBiz.getShopList();
 			
-			ISortBiz biz = new SortBiz(this.request, list);
+			ISortBiz biz = new SortBiz(this.sortASC, this.sortKind, Integer.parseInt(this.pageSize), Integer.parseInt(this.currentPage), list);
 			entity = biz.sorting();
 		}
 		

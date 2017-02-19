@@ -11,22 +11,24 @@ import com.tmon.service.IShopImgInfoService;
 
 public class ShopImgInfoService implements IShopImgInfoService{
 
-private HttpServletRequest request = null;
+	private String savePath;
+	private String key;
 	
 	public ShopImgInfoService(HttpServletRequest request)
 	{
-		this.request = request;
+		this.savePath = request.getSession().getServletContext().getRealPath("\\");
+		this.key = request.getParameter("key");
 	}
 	
 	@Override
 	public ShopImgInfoDto getShopInfo()
 	{
 		ShopImgInfoDto entity = null;
-		ICheckParameterBiz check = new KeyParamCheckBiz(this.request);
+		ICheckParameterBiz check = new KeyParamCheckBiz(this.key);
 		
 		if(check.checkParam())
 		{
-			IShopImgInfoBiz biz = new ShopImgInfoBiz(this.request);
+			IShopImgInfoBiz biz = new ShopImgInfoBiz(this.savePath, this.key);
 			entity = biz.getShopImgInfo();
 		}
 		

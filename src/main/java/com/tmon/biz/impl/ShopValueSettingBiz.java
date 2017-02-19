@@ -20,6 +20,7 @@ public class ShopValueSettingBiz implements ISettingBiz{
 	@Override
 	public boolean setting()
 	{
+		//가치 산정 update
 		ISetJsonDao shopValueSettingDao = new ShopValueSettingDao(this.list, this.savePath);
 		boolean result = shopValueSettingDao.setJson();
 		

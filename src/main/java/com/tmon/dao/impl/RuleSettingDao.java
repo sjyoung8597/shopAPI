@@ -18,6 +18,7 @@ public class RuleSettingDao implements ISetJsonDao{
 		this.entity = entity;
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public boolean setJson()
 	{

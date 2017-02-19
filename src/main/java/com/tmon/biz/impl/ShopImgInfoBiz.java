@@ -1,7 +1,5 @@
 package com.tmon.biz.impl;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -15,10 +13,10 @@ public class ShopImgInfoBiz implements IShopImgInfoBiz{
 	private String savePath = "";
 	private String key = "";
 	
-	public ShopImgInfoBiz(HttpServletRequest request)
+	public ShopImgInfoBiz(String savePath, String key)
 	{
-		this.savePath = request.getSession().getServletContext().getRealPath("\\");
-		this.key = request.getParameter("key");
+		this.savePath = savePath;
+		this.key = key;
 	}
 	
 	@Override

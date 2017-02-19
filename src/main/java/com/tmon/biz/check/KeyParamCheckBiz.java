@@ -1,24 +1,20 @@
 package com.tmon.biz.check;
 
-import javax.servlet.http.HttpServletRequest;
-
 import com.tmon.biz.ICheckParameterBiz;
 import com.tmon.biz.common.UtilBiz;
 
 public class KeyParamCheckBiz implements ICheckParameterBiz{
 	
-	private HttpServletRequest request = null;
+	private String key;
 	
-	public KeyParamCheckBiz(HttpServletRequest request)
+	public KeyParamCheckBiz(String key)
 	{
-		this.request = request;
+		this.key = key;
 	}
 	
 	public boolean checkParam()
 	{
-		String Key = request.getParameter("key");
-		
-		if(UtilBiz.isNumber(Key))
+		if(UtilBiz.isNumber(this.key))
 		{
 			return true;
 		}

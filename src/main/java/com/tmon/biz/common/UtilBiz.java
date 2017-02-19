@@ -24,15 +24,6 @@ public class UtilBiz {
 		return to;
 	}
 	
-	public static int CurrentDateToInt()
-	{
-		Date current = new Date();
-		SimpleDateFormat transFormat = new SimpleDateFormat("yyyyMMdd");
-		int result = Integer.parseInt(transFormat.format(current));
-		
-		return result;
-	}
-	
 	public static String DateToString(Date dtDate)
 	{
 		Date from = new Date();
@@ -45,6 +36,16 @@ public class UtilBiz {
 
 	}
 	
+	public static int CurrentDateToInt()
+	{
+		Date current = new Date();
+		SimpleDateFormat transFormat = new SimpleDateFormat("yyyyMMdd");
+		int result = Integer.parseInt(transFormat.format(current));
+		
+		return result;
+	}
+
+	// asc , desc 처리
 	public static int SortUtil(int firstValue, int secondValue, String sortASC)
 	{
 		if(sortASC.equals("asc")) //asc
@@ -67,6 +68,7 @@ public class UtilBiz {
 		}
 	}
 	
+	// paging 처리
 	public static List<ShopInfoDto> PagingShopList(int pageSize, int currentPage, int totalCount, List<ShopInfoDto> list)
 	{
 		
@@ -87,6 +89,7 @@ public class UtilBiz {
 		return list;
 	}
 	
+	//숫자 여부 체크
 	public static boolean isNumber(String str){
         boolean result = false; 
 

@@ -2,49 +2,31 @@ package com.tmon.biz.impl;
 
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import com.tmon.biz.IShopListBiz;
-import com.tmon.biz.common.UtilBiz;
-import com.tmon.biz.sort.SortFactoryBiz;
 import com.tmon.dao.IGetJsonDao;
 import com.tmon.dao.impl.ShopDao;
 import com.tmon.dto.ShopInfoDto;
-import com.tmon.dto.ShopListDto;
 
 public class ShopListBiz implements IShopListBiz{
 	
 	private String savePath = "";
-	
-//	private String sortASC = "";
-//	private String sortKind = "";
-//	private int pageSize = 10;
-//	private int currentPage = 1;
-	
-	public ShopListBiz(HttpServletRequest request)
+
+	public ShopListBiz(String savePath)
 	{
-		this.savePath = request.getSession().getServletContext().getRealPath("\\");
-//		this.sortASC = request.getParameter("sortASC").toLowerCase();
-//		this.sortKind = request.getParameter("sortKind").toLowerCase();
-//		this.pageSize = Integer.parseInt(request.getParameter("pageSize"));
-//		this.currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		this.savePath = savePath;
 	}
-	
-	//public ShopListDto getShopList()
 	
 	@Override
 	public List<ShopInfoDto> getShopList()
 	{
 		List<ShopInfoDto> list = new ArrayList<ShopInfoDto>();
-		//List<ShopInfoDto> sortList = new ArrayList<ShopInfoDto>();
-		//ShopListDto result = new ShopListDto();
-		
+
 		ShopInfoDto entity = null;
 		
 		IGetJsonDao dao = new ShopDao(this.savePath);
@@ -75,22 +57,7 @@ public class ShopListBiz implements IShopListBiz{
 				
 				list.add(entity);
 			}
-			
-			//SortFactoryBiz factory = null;
-//			int totalCount = list.size();
-//			
-//			Collections.sort(list, new SortFactoryBiz(this.sortKind, this.sortASC).sortingProcess());
-//			
-//			for(ShopInfoDto sortEntity : list)
-//			{
-//				sortList.add(sortEntity);
-//			}
-//			
-//			result.setShopList(UtilBiz.PagingShopList(pageSize, currentPage, totalCount, sortList));
-//			result.setTotalCount(totalCount);
 		}
-
-		//return result;
 		return list;
 	}
 	

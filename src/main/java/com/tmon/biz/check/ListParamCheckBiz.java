@@ -1,30 +1,29 @@
 package com.tmon.biz.check;
 
-import javax.servlet.http.HttpServletRequest;
-
 import com.tmon.biz.ICheckParameterBiz;
 import com.tmon.biz.common.UtilBiz;
 
 public class ListParamCheckBiz implements ICheckParameterBiz{
 	
-	private HttpServletRequest request = null;
+	private String sortASC;
+	private String sortKind;
+	private String pageSize;
+	private String currentPage;
 	
-	public ListParamCheckBiz(HttpServletRequest request)
+	public ListParamCheckBiz(String sortASC, String sortKind, String pageSize, String currentPage)
 	{
-		this.request = request;
+		this.sortASC = sortASC;
+		this.sortKind = sortKind;
+		this.pageSize = pageSize;
+		this.currentPage = currentPage;
 	}
 	
 	public boolean checkParam()
 	{
-		String sortASC = request.getParameter("sortASC").toLowerCase();
-		String sortKind = request.getParameter("sortKind").toLowerCase();
-		String pageSize = request.getParameter("pageSize");
-		String currentPage = request.getParameter("currentPage");
-		
-		if(UtilBiz.isNumber(pageSize) 
-				&& UtilBiz.isNumber(currentPage) 
-				&& !(sortASC == null || sortASC.equals("") || sortASC.equals("null"))
-				&& !(sortKind == null || sortKind.equals("") || sortKind.equals("null")))
+		if(UtilBiz.isNumber(this.pageSize) 
+				&& UtilBiz.isNumber(this.currentPage) 
+				&& !(this.sortASC == null || this.sortASC.equals("") || this.sortASC.equals("null"))
+				&& !(this.sortKind == null || this.sortKind.equals("") || this.sortKind.equals("null")))
 		{
 			return true;
 		}

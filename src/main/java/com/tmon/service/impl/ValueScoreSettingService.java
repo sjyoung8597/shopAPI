@@ -16,11 +16,11 @@ import com.tmon.service.ISettingService;
 
 public class ValueScoreSettingService implements ISettingService {
 	
-	private HttpServletRequest request = null;
+	private String savePath;
 	
 	public ValueScoreSettingService(HttpServletRequest request)
 	{
-		this.request = request;
+		this.savePath = request.getSession().getServletContext().getRealPath("\\");
 	}
 	
 	@Override
@@ -31,13 +31,13 @@ public class ValueScoreSettingService implements ISettingService {
 		List<ShopInfoDto> list = null;
 		RuleInfoDto rule = null;
 		
-		IShopListBiz listBiz = new ShopListBiz(this.request);
+		IShopListBiz listBiz = new ShopListBiz(this.savePath);
 		list = listBiz.getShopList();
 		
-		IRuleInfoBiz ruleBiz = new RuleInfoBiz(this.request);
+		IRuleInfoBiz ruleBiz = new RuleInfoBiz(this.savePath);
 		rule = ruleBiz.getRuleInfo();
 		
-		ISettingBiz settingBiz = new ValueScoreBiz(this.request, list, rule);
+		ISettingBiz settingBiz = new ValueScoreBiz(this.savePath, list, rule);
 		result = settingBiz.setting();
 		
 		return result;

@@ -1,12 +1,9 @@
 package com.tmon.biz.impl;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import com.tmon.biz.IShopInfoBiz;
-import com.tmon.biz.common.UtilBiz;
 import com.tmon.dao.IGetJsonDao;
 import com.tmon.dao.impl.ShopDao;
 import com.tmon.dto.ShopInfoDto;
@@ -16,10 +13,10 @@ public class ShopInfoBiz implements IShopInfoBiz {
 	private String savePath = "";
 	private String key = "";
 	
-	public ShopInfoBiz(HttpServletRequest request)
+	public ShopInfoBiz(String savePath, String key)
 	{
-		this.savePath = request.getSession().getServletContext().getRealPath("\\");
-		this.key = request.getParameter("key");
+		this.savePath = savePath;
+		this.key = key;
 	}
 	
 	@Override
