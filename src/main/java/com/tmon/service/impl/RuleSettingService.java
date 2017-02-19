@@ -6,9 +6,9 @@ import com.tmon.biz.*;
 import com.tmon.biz.check.RuleParamCheckBiz;
 import com.tmon.biz.impl.*;
 import com.tmon.dto.RuleInfoDto;
-import com.tmon.service.IRuleSettingService;
+import com.tmon.service.ISettingService;
 
-public class RuleSettingService implements IRuleSettingService {
+public class RuleSettingService implements ISettingService {
 	
 	private HttpServletRequest request = null;
 	
@@ -25,7 +25,7 @@ public class RuleSettingService implements IRuleSettingService {
 		
 		if(check.checkParam())
 		{
-			ISettingBiz biz = new SettingBiz(addRequestEntity());
+			ISettingBiz biz = new RuleSettingBiz(addRequestEntity());
 			reuslt = biz.setting();
 		}
 		

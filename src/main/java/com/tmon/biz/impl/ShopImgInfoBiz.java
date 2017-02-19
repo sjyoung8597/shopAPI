@@ -6,7 +6,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import com.tmon.biz.IShopImgInfoBiz;
-import com.tmon.dao.IShopListDao;
+import com.tmon.dao.IGetJsonDao;
 import com.tmon.dao.impl.ShopImgDao;
 import com.tmon.dto.ShopImgInfoDto;
 
@@ -21,12 +21,13 @@ public class ShopImgInfoBiz implements IShopImgInfoBiz{
 		this.key = request.getParameter("key");
 	}
 	
+	@Override
 	public ShopImgInfoDto getShopImgInfo() 
 	{
 		ShopImgInfoDto entity = null;
 		
-		IShopListDao dao = new ShopImgDao(this.savePath);
-		JSONObject jsonObject = dao.getShopList();
+		IGetJsonDao dao = new ShopImgDao(this.savePath);
+		JSONObject jsonObject = dao.getJson();
 		
 		if(jsonObject != null)
 		{

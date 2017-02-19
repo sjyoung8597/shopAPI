@@ -6,29 +6,36 @@ import java.io.IOException;
 
 import org.json.simple.JSONObject;
 
-import com.tmon.dao.IRuleSettingDao;
+import com.tmon.dao.ISetJsonDao;
 import com.tmon.dto.RuleInfoDto;
 
-public class RuleSettingDao implements IRuleSettingDao{
+public class RuleSettingDao implements ISetJsonDao{
+	
+	private RuleInfoDto entity;
+	
+	public RuleSettingDao(RuleInfoDto entity)
+	{
+		this.entity = entity;
+	}
 	
 	@Override
-	public boolean settingRules(RuleInfoDto entity)
+	public boolean setJson()
 	{
 		boolean success = false;
 		JSONObject obj = new JSONObject();
 		String fileName = "settingDB_table.json";
 		
-		obj.put("N4CustomerValuePersent", entity.getN4CustomerValuePersent());
-		obj.put("N4ShopValuePersent", entity.getN4ShopValuePersent());
-		obj.put("N4LookupPersent", entity.getN4LookupPersent());
-		obj.put("N4LikePersent", entity.getN4LikePersent());
-		obj.put("N4UserAverageScorePersent", entity.getN4UserAverageScorePersent());
-		obj.put("N4NewShopInfoPersent", entity.getN4NewShopInfoPersent());
-		obj.put("N4PromotionYNPersent", entity.getN4PromotionYNPersent());
+		obj.put("n4CustomerValuePersent", this.entity.getN4CustomerValuePersent());
+		obj.put("n4ShopValuePersent", this.entity.getN4ShopValuePersent());
+		obj.put("n4LookupPersent", this.entity.getN4LookupPersent());
+		obj.put("n4LikePersent", this.entity.getN4LikePersent());
+		obj.put("n4UserAverageScorePersent", this.entity.getN4UserAverageScorePersent());
+		obj.put("n4NewShopInfoPersent", this.entity.getN4NewShopInfoPersent());
+		obj.put("n4PromotionYNPersent", this.entity.getN4PromotionYNPersent());
 		
 		try {
 			
-			FileWriter file = new FileWriter(new File(entity.getStrRootPath() + fileName));
+			FileWriter file = new FileWriter(new File(this.entity.getStrRootPath() + fileName));
 			file.write(obj.toJSONString());
 			file.flush();
 			file.close();

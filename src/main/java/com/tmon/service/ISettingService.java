@@ -1,6 +1,6 @@
 package com.tmon.service;
 
-public interface IRuleSettingService {
+public interface ISettingService {
 	
 	boolean settingService();
 }

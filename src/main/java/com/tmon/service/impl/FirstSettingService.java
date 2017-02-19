@@ -3,11 +3,11 @@ package com.tmon.service.impl;
 import javax.servlet.http.HttpServletRequest;
 
 import com.tmon.biz.ISettingBiz;
-import com.tmon.biz.impl.SettingBiz;
+import com.tmon.biz.impl.RuleSettingBiz;
 import com.tmon.dto.RuleInfoDto;
-import com.tmon.service.IRuleSettingService;
+import com.tmon.service.ISettingService;
 
-public class FirstSettingService implements IRuleSettingService {
+public class FirstSettingService implements ISettingService {
 	
 	RuleInfoDto entity = null;
 	
@@ -34,7 +34,7 @@ public class FirstSettingService implements IRuleSettingService {
 	public boolean settingService()
 	{
 		boolean result = false;
-		ISettingBiz biz = new SettingBiz(this.entity);
+		ISettingBiz biz = new RuleSettingBiz(this.entity);
 		result = biz.setting();
 		
 		return result;

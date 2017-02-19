@@ -7,7 +7,7 @@ import org.json.simple.JSONObject;
 
 import com.tmon.biz.IShopInfoBiz;
 import com.tmon.biz.common.UtilBiz;
-import com.tmon.dao.IShopListDao;
+import com.tmon.dao.IGetJsonDao;
 import com.tmon.dao.impl.ShopDao;
 import com.tmon.dto.ShopInfoDto;
 
@@ -22,16 +22,17 @@ public class ShopInfoBiz implements IShopInfoBiz {
 		this.key = request.getParameter("key");
 	}
 	
+	@Override
 	public ShopInfoDto getShopInfo() 
 	{
 		ShopInfoDto entity = null;
 		
-		IShopListDao dao = new ShopDao(this.savePath);
-		JSONObject jsonObject = dao.getShopList();
+		IGetJsonDao dao = new ShopDao(this.savePath);
+		JSONObject jsonObject = dao.getJson();
 		
 		if(jsonObject != null)
 		{
-			JSONArray shopList = (JSONArray) jsonObject.get("shop");
+			JSONArray shopList = (JSONArray) jsonObject.get("shopList");
 			
 			for(int i = 0; i < shopList.size(); i++)
 			{

@@ -23,6 +23,11 @@ public class RuleInfoDto {
 	//나중에 추가 한 경로 정보
 	private String strRootPath;
 	
+	public RuleInfoDto()
+	{
+		
+	}
+	
 	public RuleInfoDto(int n4CustomerValuePersent
 			, int n4ShopValuePersent
 			, int n4LookupPersent

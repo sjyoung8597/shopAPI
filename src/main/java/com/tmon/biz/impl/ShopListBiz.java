@@ -13,7 +13,7 @@ import org.json.simple.JSONObject;
 import com.tmon.biz.IShopListBiz;
 import com.tmon.biz.common.UtilBiz;
 import com.tmon.biz.sort.SortFactoryBiz;
-import com.tmon.dao.IShopListDao;
+import com.tmon.dao.IGetJsonDao;
 import com.tmon.dao.impl.ShopDao;
 import com.tmon.dto.ShopInfoDto;
 import com.tmon.dto.ShopListDto;
@@ -22,34 +22,37 @@ public class ShopListBiz implements IShopListBiz{
 	
 	private String savePath = "";
 	
-	private String sortASC = "";
-	private String sortKind = "";
-	private int pageSize = 10;
-	private int currentPage = 1;
+//	private String sortASC = "";
+//	private String sortKind = "";
+//	private int pageSize = 10;
+//	private int currentPage = 1;
 	
 	public ShopListBiz(HttpServletRequest request)
 	{
 		this.savePath = request.getSession().getServletContext().getRealPath("\\");
-		this.sortASC = request.getParameter("sortASC").toLowerCase();
-		this.sortKind = request.getParameter("sortKind").toLowerCase();
-		this.pageSize = Integer.parseInt(request.getParameter("pageSize"));
-		this.currentPage = Integer.parseInt(request.getParameter("currentPage"));
+//		this.sortASC = request.getParameter("sortASC").toLowerCase();
+//		this.sortKind = request.getParameter("sortKind").toLowerCase();
+//		this.pageSize = Integer.parseInt(request.getParameter("pageSize"));
+//		this.currentPage = Integer.parseInt(request.getParameter("currentPage"));
 	}
 	
-	public ShopListDto getShopList()
+	//public ShopListDto getShopList()
+	
+	@Override
+	public List<ShopInfoDto> getShopList()
 	{
 		List<ShopInfoDto> list = new ArrayList<ShopInfoDto>();
-		List<ShopInfoDto> sortList = new ArrayList<ShopInfoDto>();
-		ShopListDto result = new ShopListDto();
+		//List<ShopInfoDto> sortList = new ArrayList<ShopInfoDto>();
+		//ShopListDto result = new ShopListDto();
 		
 		ShopInfoDto entity = null;
 		
-		IShopListDao dao = new ShopDao(this.savePath);
-		JSONObject jsonObject = dao.getShopList();
+		IGetJsonDao dao = new ShopDao(this.savePath);
+		JSONObject jsonObject = dao.getJson();
 		
 		if(jsonObject != null)
 		{
-			JSONArray shopList = (JSONArray) jsonObject.get("shop");
+			JSONArray shopList = (JSONArray) jsonObject.get("shopList");
 			
 			for(int i = 0; i < shopList.size(); i++)
 			{
@@ -74,20 +77,21 @@ public class ShopListBiz implements IShopListBiz{
 			}
 			
 			//SortFactoryBiz factory = null;
-			int totalCount = list.size();
-			
-			Collections.sort(list, new SortFactoryBiz(this.sortKind, this.sortASC).sortingProcess());
-			
-			for(ShopInfoDto sortEntity : list)
-			{
-				sortList.add(sortEntity);
-			}
-			
-			result.setShopList(UtilBiz.PagingShopList(pageSize, currentPage, totalCount, sortList));
-			result.setTotalCount(totalCount);
+//			int totalCount = list.size();
+//			
+//			Collections.sort(list, new SortFactoryBiz(this.sortKind, this.sortASC).sortingProcess());
+//			
+//			for(ShopInfoDto sortEntity : list)
+//			{
+//				sortList.add(sortEntity);
+//			}
+//			
+//			result.setShopList(UtilBiz.PagingShopList(pageSize, currentPage, totalCount, sortList));
+//			result.setTotalCount(totalCount);
 		}
 
-		return result;
+		//return result;
+		return list;
 	}
 	
 }

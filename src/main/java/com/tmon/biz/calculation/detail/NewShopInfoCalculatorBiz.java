@@ -1,6 +1,10 @@
 package com.tmon.biz.calculation.detail;
 
-public class NewShopInfoCalculatorBiz extends ASubCalculatorBiz{
+import com.tmon.biz.common.UtilBiz;
+import com.tmon.dto.RuleInfoDto;
+import com.tmon.dto.ShopInfoDto;
+
+public class NewShopInfoCalculatorBiz extends AReceiveDecoratorBiz{
 
 	private ASubCalculatorBiz calculator;
 	private int value;
@@ -11,13 +15,26 @@ public class NewShopInfoCalculatorBiz extends ASubCalculatorBiz{
 		this.calculator = calculator;
 	}
 	
+	@Override
+	public RuleInfoDto getRuleInfo() {
+		return this.calculator.getRuleInfo();
+	}
+
+	@Override
+	public ShopInfoDto getShopInfo() {
+		return this.calculator.getShopInfo();
+	}
+	
+	@Override
 	public int calculator()
 	{
+		int afterDays = UtilBiz.CurrentDateToInt() - this.calculator.getShopInfo().getN4ModifyDate();
+		
 		int score = 0;
 		
-		if(this.value < 199)
+		if(afterDays > 7)
 			score = 1;
-		else if(this.value > 199 && this.value < 999)
+		else if(afterDays >= 2 && afterDays <= 7)
 			score = 2;
 		else
 			score = 3;

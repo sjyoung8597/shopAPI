@@ -18,6 +18,7 @@ private HttpServletRequest request = null;
 		this.request = request;
 	}
 	
+	@Override
 	public ShopImgInfoDto getShopInfo()
 	{
 		ShopImgInfoDto entity = null;

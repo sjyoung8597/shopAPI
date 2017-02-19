@@ -11,10 +11,10 @@ import org.json.simple.parser.ParseException;
 
 import com.tmon.dao.IGetJsonDao;
 
-public class ShopImgDao implements IGetJsonDao {
+public class RuleDao implements IGetJsonDao{
 	private String savePath;
 	
-	public ShopImgDao(String savePath)
+	public RuleDao(String savePath)
 	{
 		this.savePath = savePath;
 	}
@@ -24,7 +24,7 @@ public class ShopImgDao implements IGetJsonDao {
 	{
 		JSONParser parser = new JSONParser();
 		JSONObject jsonObject = null;
-		String fileName = "shopImgInfoDB_table.json";
+		String fileName = "settingDB_table.json";
 		
 		try {
 			Object obj = parser.parse(new FileReader(new File(this.savePath + fileName) ));
@@ -45,4 +45,5 @@ public class ShopImgDao implements IGetJsonDao {
 		
 		return jsonObject;
 	}
+
 }

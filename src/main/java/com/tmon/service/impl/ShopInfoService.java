@@ -18,6 +18,7 @@ public class ShopInfoService implements IShopInfoService {
 		this.request = request;
 	}
 	
+	@Override
 	public ShopInfoDto getShopInfo()
 	{
 		ShopInfoDto entity = null;

@@ -9,9 +9,9 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import com.tmon.dao.IShopListDao;
+import com.tmon.dao.IGetJsonDao;
 
-public class ShopDao implements IShopListDao{
+public class ShopDao implements IGetJsonDao{
 	
 	private String savePath;
 	
@@ -19,8 +19,9 @@ public class ShopDao implements IShopListDao{
 	{
 		this.savePath = savePath;
 	}
-
-	public JSONObject getShopList()
+	
+	@Override
+	public JSONObject getJson()
 	{
 		JSONParser parser = new JSONParser();
 		JSONObject jsonObject = null;

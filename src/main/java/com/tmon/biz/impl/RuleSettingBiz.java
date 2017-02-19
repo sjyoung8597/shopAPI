@@ -1,15 +1,15 @@
 package com.tmon.biz.impl;
 
 import com.tmon.biz.ISettingBiz;
-import com.tmon.dao.IRuleSettingDao;
+import com.tmon.dao.ISetJsonDao;
 import com.tmon.dao.impl.RuleSettingDao;
 import com.tmon.dto.RuleInfoDto;
 
-public class SettingBiz implements ISettingBiz {
+public class RuleSettingBiz implements ISettingBiz {
 	
 	private RuleInfoDto entity = null;
 	
-	public SettingBiz(RuleInfoDto entity)
+	public RuleSettingBiz(RuleInfoDto entity)
 	{
 		this.entity = entity;
 	}
@@ -17,8 +17,8 @@ public class SettingBiz implements ISettingBiz {
 	@Override
 	public boolean setting()
 	{
-		IRuleSettingDao ruleSettingDao = new RuleSettingDao();
-		boolean result = ruleSettingDao.settingRules(this.entity);
+		ISetJsonDao ruleSettingDao = new RuleSettingDao(this.entity);
+		boolean result = ruleSettingDao.setJson();
 		
 		return result;
 	}

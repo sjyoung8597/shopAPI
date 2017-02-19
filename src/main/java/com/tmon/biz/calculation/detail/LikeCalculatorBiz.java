@@ -1,6 +1,9 @@
 package com.tmon.biz.calculation.detail;
 
-public class LikeCalculatorBiz extends ASubCalculatorBiz{
+import com.tmon.dto.RuleInfoDto;
+import com.tmon.dto.ShopInfoDto;
+
+public class LikeCalculatorBiz extends AReceiveDecoratorBiz{
 
 	private ASubCalculatorBiz calculator;
 	
@@ -9,6 +12,17 @@ public class LikeCalculatorBiz extends ASubCalculatorBiz{
 		this.calculator = calculator;
 	}
 	
+	@Override
+	public RuleInfoDto getRuleInfo() {
+		return this.calculator.getRuleInfo();
+	}
+
+	@Override
+	public ShopInfoDto getShopInfo() {
+		return this.calculator.getShopInfo();
+	}
+	
+	@Override
 	public int calculator()
 	{
 		int score = 0;
@@ -22,4 +36,6 @@ public class LikeCalculatorBiz extends ASubCalculatorBiz{
 		
 		return (score * this.calculator.getRuleInfo().getN4LikePersent()) + this.calculator.calculator();
 	}
+
+	
 }

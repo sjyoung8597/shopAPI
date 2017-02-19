@@ -1,7 +1,9 @@
 package com.tmon.biz;
 
-import com.tmon.dto.ShopListDto;
+import java.util.List;
+
+import com.tmon.dto.ShopInfoDto;
 
 public interface IShopListBiz {
-	ShopListDto getShopList();
+	List<ShopInfoDto> getShopList();
 }

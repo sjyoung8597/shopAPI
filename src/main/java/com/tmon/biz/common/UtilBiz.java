@@ -24,6 +24,15 @@ public class UtilBiz {
 		return to;
 	}
 	
+	public static int CurrentDateToInt()
+	{
+		Date current = new Date();
+		SimpleDateFormat transFormat = new SimpleDateFormat("yyyyMMdd");
+		int result = Integer.parseInt(transFormat.format(current));
+		
+		return result;
+	}
+	
 	public static String DateToString(Date dtDate)
 	{
 		Date from = new Date();

@@ -1,6 +1,9 @@
 package com.tmon.biz.calculation.detail;
 
-public class UserAverageScoreCalculatorBiz extends ASubCalculatorBiz{
+import com.tmon.dto.RuleInfoDto;
+import com.tmon.dto.ShopInfoDto;
+
+public class UserAverageScoreCalculatorBiz extends AReceiveDecoratorBiz{
 
 	private ASubCalculatorBiz calculator;
 	
@@ -9,6 +12,17 @@ public class UserAverageScoreCalculatorBiz extends ASubCalculatorBiz{
 		this.calculator = calculator;
 	}
 	
+	@Override
+	public RuleInfoDto getRuleInfo() {
+		return this.calculator.getRuleInfo();
+	}
+
+	@Override
+	public ShopInfoDto getShopInfo() {
+		return this.calculator.getShopInfo();
+	}
+	
+	@Override
 	public int calculator()
 	{
 		int score = 0;

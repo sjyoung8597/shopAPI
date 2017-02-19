@@ -1,11 +1,11 @@
 package com.tmon.biz.calculation;
 
-import com.tmon.biz.IEnterCalculatorBiz;
+import com.tmon.biz.ICalculatorBiz;
 import com.tmon.biz.calculation.detail.*;
 import com.tmon.dto.RuleInfoDto;
 import com.tmon.dto.ShopInfoDto;
 
-public class EnterCalculatorBiz implements IEnterCalculatorBiz{
+public class EnterCalculatorBiz implements ICalculatorBiz{
 	
 	private ShopInfoDto shopInfo;
 	private RuleInfoDto ruleInfo;
@@ -22,13 +22,13 @@ public class EnterCalculatorBiz implements IEnterCalculatorBiz{
 	
 	public void process()
 	{
-		ASubCalculatorBiz shopValueCalculator = new ShopCalculatorBiz(this.shopInfo, this.ruleInfo);
+		ASubCalculatorBiz shopValueCalculator = new ShopMainBiz(this.shopInfo, this.ruleInfo);
 		shopValueCalculator = new NewShopInfoCalculatorBiz(shopValueCalculator);
 		shopValueCalculator = new PromotionCalculatorBiz(shopValueCalculator);
 		
 		int shopValueScore = shopValueCalculator.calculator() * this.ruleInfo.getN4ShopValuePersent();
 		
-		ASubCalculatorBiz customerValueCalculator = new CustomerCalculatorBiz(this.shopInfo, this.ruleInfo);
+		ASubCalculatorBiz customerValueCalculator = new CustomerMainBiz(this.shopInfo, this.ruleInfo);
 		customerValueCalculator = new LookupCalculatorBiz(customerValueCalculator);
 		customerValueCalculator = new LikeCalculatorBiz(customerValueCalculator);
 		customerValueCalculator = new UserAverageScoreCalculatorBiz(customerValueCalculator);

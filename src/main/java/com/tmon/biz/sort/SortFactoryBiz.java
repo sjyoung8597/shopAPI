@@ -29,7 +29,7 @@ public class SortFactoryBiz {
 		}
 		else if(this.sortKind.toLowerCase().equals("shopvaluescore")) //가치 정보 정렬 (중요)
 		{
-			
+			sort = new SortShopValueScoreBiz(this.sortASC);
 		}
 		
 		

@@ -29,18 +29,18 @@ public class ShopAPIController {
 	
 	
 	@RequestMapping(value="/firstSetting", method=RequestMethod.GET)
-	public @ResponseBody boolean firstSetting(HttpServletRequest request) {
+	public @ResponseBody boolean firstRuleSetting(HttpServletRequest request) {
 		
-		IRuleSettingService ruleSettingService = new FirstSettingService(70,30,30,40,30,55,45, request);
+		ISettingService ruleSettingService = new FirstSettingService(70,30,30,40,30,55,45, request);
 		boolean result = ruleSettingService.settingService();
 
 		return result;
 	}
 	
 	@RequestMapping(value="/ruleSetting", method=RequestMethod.GET)
-	public @ResponseBody boolean setting(HttpServletRequest request) {
+	public @ResponseBody boolean ruleSetting(HttpServletRequest request) {
 		
-		IRuleSettingService ruleSettingService = new RuleSettingService(request);
+		ISettingService ruleSettingService = new RuleSettingService(request);
 		boolean result = ruleSettingService.settingService();
 
 		return result;
@@ -69,6 +69,15 @@ public class ShopAPIController {
 		
 		IShopImgInfoService shopImgInfoService = new ShopImgInfoService(request);
 		ShopImgInfoDto result = shopImgInfoService.getShopInfo();
+
+		return result;
+	}
+	
+	@RequestMapping(value="/valueScoreSetting", method=RequestMethod.GET)
+	public @ResponseBody boolean shopScoreSetting(HttpServletRequest request) {
+		
+		ISettingService settingService = new ValueScoreSettingService(request);
+		boolean result = settingService.settingService();
 
 		return result;
 	}
