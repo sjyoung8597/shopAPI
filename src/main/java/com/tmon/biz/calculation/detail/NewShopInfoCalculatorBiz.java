@@ -7,8 +7,6 @@ import com.tmon.dto.ShopInfoDto;
 public class NewShopInfoCalculatorBiz extends AReceiveDecoratorBiz{
 
 	private ASubCalculatorBiz calculator;
-	private int value;
-	private int persent;
 	
 	public NewShopInfoCalculatorBiz(ASubCalculatorBiz calculator)
 	{
