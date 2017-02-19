@@ -11,7 +11,6 @@ import com.tmon.service.IShopInfoService;
 
 public class ShopInfoService implements IShopInfoService {
 
-	private HttpServletRequest request = null;
 	private String savePath;
 	private String key;
 	

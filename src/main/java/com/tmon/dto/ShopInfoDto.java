@@ -1,7 +1,5 @@
 package com.tmon.dto;
 
-import java.util.Date;
-
 //각각의 상점 정볼를 담는 모델(엔티티) class입니다.
 public class ShopInfoDto {
 	
