@@ -140,7 +140,7 @@
 			
 	- 상점 가치 규칙 변경 API
 		URL : http://localhost:8080/shop/ruleSetting
-		예제 : http://localhost:8080/shop/ruleSetting?CustomerValuePersent=70&ShopValuePersent=30&LookupPersent30=&LikePersent=40&UserAverageScorePersent=30&NewShopInfoPersent=55&PromotionYNPersent=45
+		예제 : http://localhost:8080/shop/ruleSetting?CustomerValuePersent=70&ShopValuePersent=30&LookupPersent=30&LikePersent=40&UserAverageScorePersent=30&NewShopInfoPersent=55&PromotionYNPersent=45
 		
 		request Parameter : 
 			1. CustomerValuePersent = 고객가치 퍼센트
@@ -155,7 +155,7 @@
 			1. true / false
 		
 		
-	- 상점 가치 규칙 변경 API
+	- 상점 가치 점수 적용 API
 		URL : http://localhost:8080/shop/valueScoreSetting
 		예제 : http://localhost:8080/shop/valueScoreSetting
 		
@@ -166,7 +166,7 @@
 	
 	- 규칙 룰 셋팅 API TEST case 
 	1. 규칙 룰 셋팅 api 실행
-		http://localhost:8080/shop/ruleSetting?CustomerValuePersent=70&ShopValuePersent=30&LookupPersent30=&LikePersent=40&UserAverageScorePersent=30&NewShopInfoPersent=55&PromotionYNPersent=45
+		http://localhost:8080/shop/ruleSetting?CustomerValuePersent=70&ShopValuePersent=30&LookupPersent=30&LikePersent=40&UserAverageScorePersent=30&NewShopInfoPersent=55&PromotionYNPersent=45
 	2. 해당 파일 확인(settingDB_table.json) root폴더
 	
 	- 가치 정보 계산 API TEST case
@@ -220,7 +220,8 @@
 			과제를 받고 첫번째로 고민 했던 내용은 "산정 규칙 이녀석을 어떻게 나누지?" 였습니다.
 			최대한 익숙한 필기도구와 필기노트를 꺼내어 그림을 그렸습니다.
 			"계산 규칙은 정해져 있지만 바뀔수 있어! 이걸 DB로 관리하는것이 과연 옳은가? 아닌가?"
-			"반영 비율의 의미는 뭘까? 100%를 만들어야 되는것인가? 그렇기에는 최대 점수가 3만점인데? 이 또한 변경 가능 하다고 봐야겠어!"
+			"반영 비율의 의미는 뭘까? 100%를 만들어야 되는것인가? 그렇기에는 최대 점수가 3만점인데? 	
+			이 또한 변경 가능 하다고 봐야겠어!"
 			"점수는 과연 정수에서 끝날까? 문자열이나, 소수점 일수도 있을것 같아."
 			이런저런 변경 될 수 있다는 가설정보로 기획을 하였습니다. 기획을 하고 나니 패턴을 그려야 했습니다.
 			"데코레이터를 써서 해당 정보를 하나씩 계산하자" "지금은 쓸일이 없겠지만 추상화팩토리를 만들어 볼까?" 등등
@@ -228,25 +229,29 @@
 			패턴 정리와 설계를 이쯤 하고 다른 기능을 구현 하기로 하였습니다.
 		
 		2. 첫번째 난관
-			역시 자바 개발은 환경 설정이 절반인것이 맞는 것 같습니다. 집에 설치 되어 있지 않은 자바를 설치 후 메이븐과 이클립스 연동, 톰캣까지 설정
-			하니 여러가지 문제가 봉착 하게 되었습니다. 설정을 자주 해 본것이 아니라, 여러 상황과 여러 문제의 해결에 시간을 소모 하였습니다.
+			역시 자바 개발은 환경 설정이 절반인것이 맞는 것 같습니다. 집에 설치 되어 있지 않은 자바를 설치 후 메이븐과 
+			이클립스 연동, 톰캣까지 설정 하니 여러가지 문제가 봉착 하게 되었습니다. 설정을 자주 해 본것이 아니라, 
+			여러 상황과 여러 문제의 해결에 시간을 소모 하였습니다.
 		
 		3. 두번째 난관 
 			DB역할 (json) 문제도 여러 시행착오를 겪어야만 했습니다. 당연히 간단하게 풀릴 것이라 생각했고, 
-			얼마 걸리지 않을것이라 생각 했던 json 파일의 경로 문제로 어찌 할까 고민을 해야 했습니다. 최초 데이터를 초기 셋팅 하는 api를 개발 하려 했지만,
-			 이런것을 면접관들이 원할까? 란 생각에 결국은 web 폴더의 httpServletRequest path 로 해결 하기로 하였습니다. 
+			얼마 걸리지 않을것이라 생각 했던 json 파일의 경로 문제로 어찌 할까 고민을 해야 했습니다. 최초 데이터를 초기 
+			셋팅 하는 api를 개발 하려 했지만,이런것을 면접관들이 원할까? 란 생각에 결국은 web 폴더의 
+			httpServletRequest path 로 해결 하기로 하였습니다. 
 			(제가 2대의 컴퓨터에서는 테스트 시 이상이 없었는데 불안합니다.;; 안되시면 꼭 회신 부탁드립니다.)
 
 		4. 두번째 고민
 			정렬문제를 조금 이쁘게 만들기 위해 
-			Comparator 를 사용 함에 있어 확장성을 고민 해야 했고, 각 조건마다 factory 시켜 조건을 실행 할수 있는 방향으로 고민을 하였습니다.
+			Comparator 를 사용 함에 있어 확장성을 고민 해야 했고, 각 조건마다 factory 시켜 조건을 실행 할수 있는 
+			방향으로 고민을 하였습니다.
 			그런데 Comparator는 interface로 직접 조건을 넣기에는 무리가 있어 보여 해당 Comparator를 추상화가 상속 시켜 아래 
 			조건class의 팩토리 패턴 분리화를 시킬수 있었습니다.  
 		
 		5. 세번째 고민
-			개발을 하다보니 리펙토링이 필요한 시점이 왔습니다. 아무리 그림을 그리고, 고민을 거듭하여 만들어도 중복 되는 코드나, 확장성이 떨어지는
-			코드가 생성되기 시작하였습니다. 모든 클래스를 interface화 시키고, 추상화 시켜서 모든 class를 재활용 목적으로 개발 할순 없지만  
-			조금이나마 package를 최대한 분리화 하고, 나누는 작업을 진행 하였습니다.
+			개발을 하다보니 리펙토링이 필요한 시점이 왔습니다. 아무리 그림을 그리고, 고민을 거듭하여 만들어도 중복 되는 
+			코드나, 확장성이 떨어지는 코드가 생성되기 시작하였습니다. 모든 클래스를 interface화 시키고, 추상화 시켜서
+			 모든 class를 재활용 목적으로 개발 할순 없지만  조금이나마 package를 최대한 분리화 하고, 나누는 작업을 
+			 진행 하였습니다.
 		
 		6. 마무리
 			다행히도 초창기 설계 해 놓은 고민 대로 과제를 무사히 끝나게 되어 기쁩니다.
