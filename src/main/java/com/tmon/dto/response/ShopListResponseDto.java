@@ -2,7 +2,6 @@ package com.tmon.dto.response;
 
 import java.util.List;
 
-import com.tmon.dto.ResponseCodeDto;
 import com.tmon.dto.ShopInfoDto;
 
 public class ShopListResponseDto {

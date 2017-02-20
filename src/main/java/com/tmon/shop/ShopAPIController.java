@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tmon.dto.*;
-import com.tmon.dto.response.ShopImgResponseDto;
-import com.tmon.dto.response.ShopInfoResponseDto;
 import com.tmon.dto.response.ShopListResponseDto;
 import com.tmon.service.*;
 import com.tmon.service.impl.*;

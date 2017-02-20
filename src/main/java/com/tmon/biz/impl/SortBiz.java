@@ -5,10 +5,8 @@ import java.util.Collections;
 import java.util.List;
 
 import com.tmon.biz.ISortBiz;
-import com.tmon.biz.common.ResultConstantsBiz;
 import com.tmon.biz.common.UtilBiz;
 import com.tmon.biz.sort.SortFactoryBiz;
-import com.tmon.dto.ResponseCodeDto;
 import com.tmon.dto.ShopInfoDto;
 import com.tmon.dto.response.ShopListResponseDto;
 
