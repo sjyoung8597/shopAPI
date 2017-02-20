@@ -1,8 +1,8 @@
 package com.tmon.biz;
 
-import com.tmon.dto.ShopListDto;
+import com.tmon.dto.response.ShopListResponseDto;
 
 public interface ISortBiz {
 	
-	public ShopListDto sorting(); 
+	public ShopListResponseDto sorting(); 
 }

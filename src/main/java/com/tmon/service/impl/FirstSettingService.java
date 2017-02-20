@@ -4,12 +4,14 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.tmon.biz.ISettingBiz;
 import com.tmon.biz.impl.RuleSettingBiz;
+import com.tmon.dto.ResponseCodeDto;
 import com.tmon.dto.RuleInfoDto;
 import com.tmon.service.ISettingService;
 
 public class FirstSettingService implements ISettingService {
 	
 	RuleInfoDto entity = null;
+	private String savePath;
 	
 	public FirstSettingService(int n4CustomerValuePersent
 			, int n4ShopValuePersent
@@ -20,21 +22,21 @@ public class FirstSettingService implements ISettingService {
 			, int n4PromotionYNPersent
 			, HttpServletRequest request)
 	{
-		entity = new RuleInfoDto(n4CustomerValuePersent
+		this.entity = new RuleInfoDto(n4CustomerValuePersent
 			, n4ShopValuePersent
 			, n4LookupPersent
 			, n4LikePersent
 			, n4UserAverageScorePersent
 			, n4NewShopInfoPersent
-			, n4PromotionYNPersent
-			, request.getSession().getServletContext().getRealPath("\\"));
+			, n4PromotionYNPersent);
+		this.savePath = request.getSession().getServletContext().getRealPath("\\");
 	}
 	
 	@Override
-	public boolean settingService()
+	public ResponseCodeDto settingService()
 	{
-		boolean result = false;
-		ISettingBiz biz = new RuleSettingBiz(this.entity);
+		ResponseCodeDto result = null;
+		ISettingBiz biz = new RuleSettingBiz(this.entity, this.savePath);
 		result = biz.setting();
 		
 		return result;

@@ -11,7 +11,7 @@ import com.tmon.biz.check.ListParamCheckBiz;
 import com.tmon.biz.impl.ShopListBiz;
 import com.tmon.biz.impl.SortBiz;
 import com.tmon.dto.ShopInfoDto;
-import com.tmon.dto.ShopListDto;
+import com.tmon.dto.response.ShopListResponseDto;
 import com.tmon.service.IShopListService;
 
 public class ShopListService implements IShopListService{
@@ -33,9 +33,9 @@ public class ShopListService implements IShopListService{
 	}
 	
 	@Override
-	public ShopListDto getShopList()
+	public ShopListResponseDto getShopList()
 	{
-		ShopListDto entity = null;
+		ShopListResponseDto result = null;
 		List<ShopInfoDto> list = null;
 		
 		ICheckParameterBiz check = new ListParamCheckBiz(this.sortASC, this.sortKind, this.pageSize, this.currentPage);
@@ -46,9 +46,9 @@ public class ShopListService implements IShopListService{
 			list = listBiz.getShopList();
 			
 			ISortBiz biz = new SortBiz(this.sortASC, this.sortKind, Integer.parseInt(this.pageSize), Integer.parseInt(this.currentPage), list);
-			entity = biz.sorting();
+			result = biz.sorting();
 		}
 		
-		return entity;
+		return result;
 	}
 }

@@ -1,14 +1,16 @@
-package com.tmon.dto;
+package com.tmon.dto.response;
 
 import java.util.List;
 
-public class ShopListDto {
+import com.tmon.dto.ResponseCodeDto;
+import com.tmon.dto.ShopInfoDto;
+
+public class ShopListResponseDto {
 	
 	//해당 상점 PK 인덱스
 	private int totalCount;
 
-	private List<ShopInfoDto> shop;
-	
+	private List<ShopInfoDto> shopList;
 	
 	public int getTotalCount() {
 		return totalCount;
@@ -19,11 +21,11 @@ public class ShopListDto {
 	}
 
 	public List<ShopInfoDto> getShopList() {
-		return shop;
+		return shopList;
 	}
 
-	public void setShopList(List<ShopInfoDto> shop) {
-		this.shop = shop;
+	public void setShopList(List<ShopInfoDto> shopList) {
+		this.shopList = shopList;
 	}
 		
 		

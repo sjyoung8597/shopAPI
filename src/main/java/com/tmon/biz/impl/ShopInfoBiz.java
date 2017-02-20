@@ -4,9 +4,12 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import com.tmon.biz.IShopInfoBiz;
+import com.tmon.biz.common.ResultConstantsBiz;
 import com.tmon.dao.IGetJsonDao;
 import com.tmon.dao.impl.ShopDao;
+import com.tmon.dto.ResponseCodeDto;
 import com.tmon.dto.ShopInfoDto;
+import com.tmon.dto.response.ShopInfoResponseDto;
 
 public class ShopInfoBiz implements IShopInfoBiz {
 	
@@ -56,7 +59,7 @@ public class ShopInfoBiz implements IShopInfoBiz {
 				}
 			}
 		}
-		
+
 		return entity;
 	}
 }

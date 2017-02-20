@@ -29,7 +29,8 @@
 # API 목록
 
 	- 모든 API는 브라우저 테스트 시 결과물 제공에 용이하기 위하여 Get 방식으로 개발을 종료 하였습니다.(의도적입니다.)
-	- API의 특성상 result Code 를 포함하여 requestData를 만드는것이 정상이나 과제에서는 적용치 않았습니다. 
+	- API의 특성상 resultCodeStatus 를 포함하여 requestData를 만드는것이 정상이나
+		성공(resultCode : 0)/실패(resultCode : -1)에 따른 결과만 update에 한에 도출 하였습니다.
 
 	- 상점 목록 조회
 		URL : http://localhost:8080/shop/shopList
@@ -80,6 +81,7 @@
 					"isShopPromotionYN":false,
 					"n4ShopValueScore":5550,
 					"n4ModifyDate":20170129}]
+				
 			}
 	
 	
@@ -118,7 +120,7 @@
 				"n4ShopValueScore":0,
 				"n4ModifyDate":20170217
 			}
-		
+			
 			
 	- 상점 사진 조회 API
 		URL : http://localhost:8080/shop/shopImgInfo
@@ -138,6 +140,7 @@
 				"strShopImgOrigin":"self"
 			}
 			
+			
 	- 상점 가치 규칙 변경 API
 		URL : http://localhost:8080/shop/ruleSetting
 		예제 : http://localhost:8080/shop/ruleSetting?CustomerValuePersent=70&ShopValuePersent=30&LookupPersent=30&LikePersent=40&UserAverageScorePersent=30&NewShopInfoPersent=55&PromotionYNPersent=45
@@ -152,7 +155,7 @@
 			7. PromotionYNPersent = 할인 여부 퍼센트
 		
 		response Data :
-			1. true / false
+			1. "responseCode":{"n4ResultCode":0,"strResultMessage":"처리완료"}
 		
 		
 	- 상점 가치 점수 적용 API
@@ -160,7 +163,7 @@
 		예제 : http://localhost:8080/shop/valueScoreSetting
 		
 		response Data :
-			1. true / false
+			1. "responseCode":{"n4ResultCode":0,"strResultMessage":"처리완료"}
 
 #테스트 방법
 	

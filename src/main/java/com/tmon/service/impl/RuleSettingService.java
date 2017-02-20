@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import com.tmon.biz.*;
 import com.tmon.biz.check.RuleParamCheckBiz;
 import com.tmon.biz.impl.*;
+import com.tmon.dto.ResponseCodeDto;
 import com.tmon.dto.RuleInfoDto;
 import com.tmon.service.ISettingService;
 
@@ -32,9 +33,9 @@ public class RuleSettingService implements ISettingService {
 	}
 	
 	@Override
-	public boolean settingService()
+	public ResponseCodeDto settingService()
 	{
-		boolean reuslt = false;
+		ResponseCodeDto reuslt = null;
 		ICheckParameterBiz check = new RuleParamCheckBiz(this.CustomerValuePersent, this.ShopValuePersent
 				, this.LookupPersent, this.LikePersent
 				, this.UserAverageScorePersent, this.NewShopInfoPersent
@@ -42,7 +43,7 @@ public class RuleSettingService implements ISettingService {
 		
 		if(check.checkParam())
 		{
-			ISettingBiz biz = new RuleSettingBiz(addRequestEntity());
+			ISettingBiz biz = new RuleSettingBiz(addRequestEntity(), this.savePath);
 			reuslt = biz.setting();
 		}
 		
@@ -57,8 +58,7 @@ public class RuleSettingService implements ISettingService {
 				Integer.parseInt(this.LikePersent),
 				Integer.parseInt(this.UserAverageScorePersent),
 				Integer.parseInt(this.NewShopInfoPersent),
-				Integer.parseInt(this.PromotionYNPersent),
-				this.savePath);
+				Integer.parseInt(this.PromotionYNPersent));
 		
 		return entity;
 	}

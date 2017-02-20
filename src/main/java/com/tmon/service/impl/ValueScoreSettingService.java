@@ -10,6 +10,7 @@ import com.tmon.biz.IShopListBiz;
 import com.tmon.biz.impl.RuleInfoBiz;
 import com.tmon.biz.impl.ShopListBiz;
 import com.tmon.biz.impl.ValueScoreBiz;
+import com.tmon.dto.ResponseCodeDto;
 import com.tmon.dto.RuleInfoDto;
 import com.tmon.dto.ShopInfoDto;
 import com.tmon.service.ISettingService;
@@ -24,9 +25,9 @@ public class ValueScoreSettingService implements ISettingService {
 	}
 	
 	@Override
-	public boolean settingService() {
+	public ResponseCodeDto settingService() {
 		
-		boolean result = false;
+		ResponseCodeDto result = null;
 		
 		List<ShopInfoDto> list = null;
 		RuleInfoDto rule = null;
@@ -39,7 +40,7 @@ public class ValueScoreSettingService implements ISettingService {
 		
 		ISettingBiz settingBiz = new ValueScoreBiz(this.savePath, list, rule);
 		result = settingBiz.setting();
-		
+
 		return result;
 	}
 }

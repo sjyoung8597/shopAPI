@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tmon.dto.*;
+import com.tmon.dto.response.ShopImgResponseDto;
+import com.tmon.dto.response.ShopInfoResponseDto;
+import com.tmon.dto.response.ShopListResponseDto;
 import com.tmon.service.*;
 import com.tmon.service.impl.*;
 
@@ -15,19 +18,19 @@ import com.tmon.service.impl.*;
 public class ShopAPIController {
 	
 	@RequestMapping(value="/firstSetting", method=RequestMethod.GET)
-	public @ResponseBody boolean firstRuleSetting(HttpServletRequest request) {
+	public @ResponseBody ResponseCodeDto firstRuleSetting(HttpServletRequest request) {
 		
 		ISettingService ruleSettingService = new FirstSettingService(70,30,30,40,30,55,45, request);
-		boolean result = ruleSettingService.settingService();
+		ResponseCodeDto result = ruleSettingService.settingService();
 
 		return result;
 	}
 	
 	@RequestMapping(value="/ruleSetting", method=RequestMethod.GET)
-	public @ResponseBody boolean ruleSetting(HttpServletRequest request) {
+	public @ResponseBody ResponseCodeDto ruleSetting(HttpServletRequest request) {
 		
 		ISettingService ruleSettingService = new RuleSettingService(request);
-		boolean result = ruleSettingService.settingService();
+		ResponseCodeDto result = ruleSettingService.settingService();
 
 		return result;
 	}
@@ -42,10 +45,10 @@ public class ShopAPIController {
 	}
 	
 	@RequestMapping(value="/shopList", method=RequestMethod.GET)
-	public @ResponseBody ShopListDto shopList(HttpServletRequest request) {
+	public @ResponseBody ShopListResponseDto shopList(HttpServletRequest request) {
 		
 		IShopListService shopListService = new ShopListService(request);
-		ShopListDto result = shopListService.getShopList();
+		ShopListResponseDto result = shopListService.getShopList();
 
 		return result;
 	}
@@ -60,10 +63,10 @@ public class ShopAPIController {
 	}
 	
 	@RequestMapping(value="/valueScoreSetting", method=RequestMethod.GET)
-	public @ResponseBody boolean shopScoreSetting(HttpServletRequest request) {
+	public @ResponseBody ResponseCodeDto shopScoreSetting(HttpServletRequest request) {
 		
 		ISettingService settingService = new ValueScoreSettingService(request);
-		boolean result = settingService.settingService();
+		ResponseCodeDto result = settingService.settingService();
 
 		return result;
 	}

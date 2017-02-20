@@ -10,6 +10,13 @@ public class ShopImgInfoDto {
 	//상점 이미지 출처
 	private String strShopImgOrigin;
 	
+	public ShopImgInfoDto()
+	{
+		this.n4ShopKey = 0;
+		this.strShopImgUrl = "";
+		this.strShopImgOrigin = "";
+	}
+	
 	public String getStrShopImgUrl() {
 		return strShopImgUrl;
 	}

@@ -7,6 +7,7 @@ import com.tmon.biz.ISettingBiz;
 import com.tmon.biz.calculation.ACalculatorBiz;
 import com.tmon.biz.calculation.CalculatorFactoryBiz;
 import com.tmon.biz.calculation.EnterCalculatorBiz;
+import com.tmon.dto.ResponseCodeDto;
 import com.tmon.dto.RuleInfoDto;
 import com.tmon.dto.ShopInfoDto;
 
@@ -24,9 +25,9 @@ public class ValueScoreBiz implements ISettingBiz{
 	}
 	
 	@Override
-	public boolean setting()
+	public ResponseCodeDto setting()
 	{	
-		boolean result = false;
+		ResponseCodeDto result = null;
 		List<ShopInfoDto> setting = new ArrayList<ShopInfoDto>();
 		
 		//가치 산정 로직

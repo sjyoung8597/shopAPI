@@ -1,8 +1,8 @@
 package com.tmon.service;
 
-import com.tmon.dto.ShopListDto;
+import com.tmon.dto.response.ShopListResponseDto;
 
 public interface IShopListService {
 
-	ShopListDto getShopList();
+	ShopListResponseDto getShopList();
 }

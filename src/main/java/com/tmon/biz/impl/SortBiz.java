@@ -5,10 +5,12 @@ import java.util.Collections;
 import java.util.List;
 
 import com.tmon.biz.ISortBiz;
+import com.tmon.biz.common.ResultConstantsBiz;
 import com.tmon.biz.common.UtilBiz;
 import com.tmon.biz.sort.SortFactoryBiz;
+import com.tmon.dto.ResponseCodeDto;
 import com.tmon.dto.ShopInfoDto;
-import com.tmon.dto.ShopListDto;
+import com.tmon.dto.response.ShopListResponseDto;
 
 public class SortBiz implements ISortBiz{
 	
@@ -29,10 +31,11 @@ public class SortBiz implements ISortBiz{
 	}
 	
 	@Override
-	public ShopListDto sorting()
+	public ShopListResponseDto sorting()
 	{
 		List<ShopInfoDto> sortList = new ArrayList<ShopInfoDto>();
-		ShopListDto result = new ShopListDto();
+		ShopListResponseDto result = null;
+		
 		int totalCount = this.list.size();
 		
 		//sort logic
@@ -45,6 +48,7 @@ public class SortBiz implements ISortBiz{
 		}
 		
 		//paging 처리
+		result = new ShopListResponseDto();
 		result.setShopList(UtilBiz.PagingShopList(this.pageSize, this.currentPage, totalCount, sortList));
 		result.setTotalCount(totalCount);
 		

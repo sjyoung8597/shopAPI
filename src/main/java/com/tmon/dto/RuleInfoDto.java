@@ -20,12 +20,15 @@ public class RuleInfoDto {
 	//할인 여부 퍼센트
 	private int n4PromotionYNPersent;
 	
-	//나중에 추가 한 경로 정보
-	private String strRootPath;
-	
 	public RuleInfoDto()
 	{
-		
+		this.n4CustomerValuePersent = 0;
+		this.n4ShopValuePersent = 0;
+		this.n4LookupPersent = 0;
+		this.n4LikePersent = 0;
+		this.n4UserAverageScorePersent = 0;
+		this.n4NewShopInfoPersent = 0;
+		this.n4PromotionYNPersent = 0;
 	}
 	
 	public RuleInfoDto(int n4CustomerValuePersent
@@ -34,8 +37,7 @@ public class RuleInfoDto {
 			, int n4LikePersent
 			, int n4UserAverageScorePersent
 			, int n4NewShopInfoPersent
-			, int n4PromotionYNPersent
-			, String strRootPath)
+			, int n4PromotionYNPersent)
 	{
 		this.n4CustomerValuePersent = n4CustomerValuePersent;
 		this.n4ShopValuePersent = n4ShopValuePersent;
@@ -44,15 +46,18 @@ public class RuleInfoDto {
 		this.n4UserAverageScorePersent = n4UserAverageScorePersent;
 		this.n4NewShopInfoPersent = n4NewShopInfoPersent;
 		this.n4PromotionYNPersent = n4PromotionYNPersent;
-		this.strRootPath = strRootPath;
 	}
 	
-	public String getStrRootPath() {
-		return strRootPath;
+	private ResponseCodeDto resultCode;
+	
+	public ResponseCodeDto getResultCode() {
+		return resultCode;
 	}
-	public void setStrRootPath(String strRootPath) {
-		this.strRootPath = strRootPath;
+
+	public void setResultCode(ResponseCodeDto resultCode) {
+		this.resultCode = resultCode;
 	}
+	
 	public int getN4CustomerValuePersent() {
 		return n4CustomerValuePersent;
 	}

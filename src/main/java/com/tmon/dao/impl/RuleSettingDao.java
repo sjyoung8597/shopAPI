@@ -11,11 +11,13 @@ import com.tmon.dto.RuleInfoDto;
 
 public class RuleSettingDao implements ISetJsonDao{
 	
-	private RuleInfoDto entity;
+	private RuleInfoDto entity = null;
+	private String savePath = "";
 	
-	public RuleSettingDao(RuleInfoDto entity)
+	public RuleSettingDao(RuleInfoDto entity, String savePath)
 	{
 		this.entity = entity;
+		this.savePath = savePath;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -36,7 +38,7 @@ public class RuleSettingDao implements ISetJsonDao{
 		
 		try {
 			
-			FileWriter file = new FileWriter(new File(this.entity.getStrRootPath() + fileName));
+			FileWriter file = new FileWriter(new File(this.savePath + fileName));
 			file.write(obj.toJSONString());
 			file.flush();
 			file.close();

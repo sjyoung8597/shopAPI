@@ -1,6 +1,8 @@
 package com.tmon.service;
 
+import com.tmon.dto.ResponseCodeDto;
+
 public interface ISettingService {
 	
-	boolean settingService();
+	ResponseCodeDto settingService();
 }

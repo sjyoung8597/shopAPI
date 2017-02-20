@@ -23,15 +23,15 @@ public class ShopImgInfoService implements IShopImgInfoService{
 	@Override
 	public ShopImgInfoDto getShopInfo()
 	{
-		ShopImgInfoDto entity = null;
+		ShopImgInfoDto result = null;
 		ICheckParameterBiz check = new KeyParamCheckBiz(this.key);
 		
 		if(check.checkParam())
 		{
 			IShopImgInfoBiz biz = new ShopImgInfoBiz(this.savePath, this.key);
-			entity = biz.getShopImgInfo();
+			result = biz.getShopImgInfo();
 		}
 		
-		return entity;
+		return result;
 	}
 }

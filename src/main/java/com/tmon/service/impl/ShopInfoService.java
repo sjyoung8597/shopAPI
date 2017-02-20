@@ -23,15 +23,16 @@ public class ShopInfoService implements IShopInfoService {
 	@Override
 	public ShopInfoDto getShopInfo()
 	{
-		ShopInfoDto entity = null;
+		ShopInfoDto result = null;
+		
 		ICheckParameterBiz check = new KeyParamCheckBiz(this.key);
 		
 		if(check.checkParam())
 		{
 			IShopInfoBiz biz = new ShopInfoBiz(this.savePath, this.key);
-			entity = biz.getShopInfo();
+			result = biz.getShopInfo();
 		}
 		
-		return entity;
+		return result;
 	}
 }
