@@ -1,6 +1,3 @@
-# 지원자
-송재영
-
 # 개발환경
 	- os : Windows 7 Professional K
 	- IDE : Eclipse Java EE IDE for Web Developers. Neon.2 Release (4.6.2)
